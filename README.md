@@ -1,35 +1,7 @@
-# Project Charter - Narin Dhatwalia
-
-## Vision
-
-The “why” of the project. The reason for the project’s existence. What the problem is you’re trying to solve, not how you’re solving it.
-
-## Mission
-
-The “what” of the project. What will be built to achieve the vision? What does your model do? The mission should not include the tasks that you will be doing during development. 
-
-Be sure to include the data source you intend to use, including a link to the relevant site. Please note that you may not scrape websites if it is against their terms of service.
-
-## Success Criteria
-
-How will your business stakeholders (Fausto and Chloe) know the project was successful. What metric will you use to evaluate the performance of your model? What is the minimum value of that metric required for success?
-
-You should include two success criteria:
-
-* The machine learning performance metric (e.g. accuracy, MSE, AUC, etc) that you will assess the model’s performance prior to deployment - what criteria is there for this metric that should be met before it can go live? (this can be negotiated later on).
-
-* The metric that would actually measure the business outcome desired. This could be something like revenue, measures of user engagement, etc. Your app is sadly unlikely to be live long enough to measure this metric (though we would love if you kept it running forever!), but if it were, this what the true model performance and success would be based on.
-
-
-
-
-
-
-
-
-# MSiA423 Template Repository
+# MSiA423 Repository
 
 # Table of Contents
+* [Project Charter](#Project-Charter)
 * [Directory structure ](#Directory-structure)
 * [Running the app ](#Running-the-app)
 	* [1. Initialize the database ](#1.-Initialize-the-database)
@@ -39,6 +11,49 @@ You should include two success criteria:
 * [Mypy](#Mypy)
 * [Pylint](#Pylint)
 
+## Project Charter
+
+## Predict the profitability of stock investments made by members of U.S. Congress
+
+Developer: Narin Dhatwalia
+QA support: Simon Zhu
+![enter image description here](https://images.mktw.net/im-474636?width=700&size=1.4382022471910112&pixel_ratio=2)
+### Background
+
+Congress resembled a Wall Street trading desk last year, with lawmakers making an estimated total of $355 million worth of stock trades, 
+buying and selling shares of companies based in the U.S. and around the world.
+
+At least 113 lawmakers have disclosed stock transactions that were made in 2021 by themselves or family members, according to a Capitol Trades analysis of disclosures and MarketWatch reporting. U.S. lawmakers bought an estimated $180 million worth of stock last year and sold $175 million.
+
+The trading action taking place in both the House and the Senate comes as some lawmakers push for a ban on congressional buying and selling of individual stocks. Stock trading is a bipartisan activity in Washington, widely conducted by both Democrats and Republicans, the disclosures show. Congress as a whole tended to be slightly bullish last year with more buys than sells as the S&P 500 SPX soared and returned 28.4%. Republicans traded a larger dollar amount overall — an estimated $201 million vs. Democrats’ $154 million.
+
+Stock picking by elected officials gets worrisome because there is widespread concern that legislators may have access to insider information. It is also possible 
+that their stock purchases will consciously or unconsciously impact policy making.
+
+### Vision: 
+
+The aim of the project is to predict the profitability of stock investments made by members of U.S. Congress. The final goal is to build a model which can 
+accurately determine whether an investment made by a U.S. lawmaker will be profitable in the future. Results from this model can benefit retail investors while picking their own 
+stocks, as well as watchdog groups to explore possible cases of insider trading.
+
+### Mission
+
+A logistic regression model is leveraged for the purpose of classifying stock purchases as "profitable" vs. "non-profitable". A "profitable" investment is defined as a 
+stock purchase where that specific company's stock is trading at a higher price today than the price on the date of transaction (i.e. when the Congress official purchased it).
+
+There are two APIs that are used to source the data for this project. The "House Stock Watcher" API is used to extract Stock purchase transactions of Congress members (from 
+documents filed under the Stock Act of 2012), and the "Yahoo Finance" API is used to extract the prices at which different stocks were trading on a specific day.
+
+### Success Criteria
+
+How will your business stakeholders (Fausto and Chloe) know the project was successful. What metric will you use to evaluate the performance of your model? What is the minimum value of that metric required for success?
+
+The two success criteria for this project are as follows:
+
+* The prediction accuracy and the AUC/ROC score of the binary classifier will be concrete indicators of the model's predictive performance. 
+Before the model goes live, the prediction accuracy should be above 0.70 and the AUC/ROC score should be above 0.85.
+
+* Once the model is live, it becomes important to measure user engagement. The business outcome of concern will be number of predictions made per day, number of website visits, and percentage of repeat visitors (user that return to the webpage within the same week).
 
 
 ## Directory structure 

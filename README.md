@@ -45,16 +45,20 @@ A logistic regression model is leveraged for the purpose of classifying stock pu
 stock purchase by a Congress member where that specific company's stock is trading at a higher price today than the price on the date of transaction (i.e. when the Congress official purchased it).
 
 Two APIs are used to source the data for this project. The "House Stock Watcher" API is used to extract Stock purchase transactions of Congress members (from 
-documents filed under the Stock Act of 2012), and the "Yahoo Finance" API is used to obain the prices at which different stocks were trading on a specific day.
+documents filed under the Stock Act of 2012), and the "Yahoo Finance" API is used to obtain the prices at which different stocks were trading on a specific day.
+
+House Stock Watcher: https://housestockwatcher.com/
+
+Yahoo Finance: https://pypi.org/project/yfinance/
 
 ### Success Criteria
 
 The two success criteria for this project are as follows:
 
-* The prediction accuracy and the AUC/ROC score of the binary classifier will be concrete indicators of the model's predictive performance. 
+* The prediction accuracy and the AUC/ROC score of the binary classifier are concrete indicators of the model's predictive performance. 
 Before the model goes live, the prediction accuracy should be above 0.70 and the AUC/ROC score should be above 0.85.
 
-* Once the model is live, it becomes important to measure user engagement. The business outcome of concern will be number of predictions made per day, number of website visits, and percentage of repeat visitors (user that return to the webpage within the same week).
+* Once the model goes live, it becomes important to measure user engagement. Therefore, the business outcomes of concern will be the number of predictions made per day, number of website visits per day, and the percentage of repeat visitors (i.e. users that return to the webpage within the same week).
 
 
 ## Directory structure 

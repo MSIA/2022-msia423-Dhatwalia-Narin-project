@@ -47,6 +47,16 @@ stock purchase by a Congress member where that specific company's stock is tradi
 Two APIs are used to source the data for this project. The "House Stock Watcher" API is used to extract Stock purchase transactions of Congress members (from 
 documents filed under the Stock Act of 2012), and the "Yahoo Finance" API is used to obtain the prices at which different stocks were trading on a specific day.
 
+Once the app is live, users can obtain a prediction ("profitable" or "non-profitable") along with the probability of the transaction being "profitable". This information can be vital
+for retail investors who track financial disclosures made by Congress members, and wish to assess whether they should also purchase the same stock. Moreover, watchdog groups can possibly interpret a very high probability as a possible suggestion of insider trading. Note that users can also obtain a similar prediction and probability for all past transactions made by Congress members. 
+
+Features to be input by users once the model is live:
+
+* Name of Congress Official
+* Ticker of the company they've invested in
+* Dollar amount that has been invested
+* Current price of the company's stock
+
 House Stock Watcher: https://housestockwatcher.com/
 
 Yahoo Finance: https://pypi.org/project/yfinance/

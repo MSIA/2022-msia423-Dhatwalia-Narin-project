@@ -1,0 +1,54 @@
+model:
+  model_path: models/model.pkl
+  encoder_path: models/encoder.pkl
+
+create_db:
+  local_path: data/external/recent_transactions.csv
+
+train:
+  local_path: data/clean/clean.csv
+  sep: ','
+  train:
+    category_cols:
+      - 
+      - 
+    response_cols:
+      - 
+      - 
+    year_col:
+      - 
+    results_path: models/model_results.yaml
+    model_path: models/model.pkl
+    encoder_path: models/encoder.pkl
+    test_size: 0.15
+    random_state: 42
+    penalty: 'l2'
+    tol: 1e-4
+
+acquire:
+  get_zip:
+    url: 
+    file_name: 
+  unzip:
+    source_path: 
+    destination_path: 
+    data_filename: 
+  upload_s3:
+    local_path: 
+  download_s3:
+    local_path: 
+    sep: ','
+
+clean:
+  clean:
+    local_path: 
+    save_path: 
+    columns:
+      - 
+      - 
+    response: 
+    threshold: 
+    null_vals:
+      - 
+      - 
+    other: 

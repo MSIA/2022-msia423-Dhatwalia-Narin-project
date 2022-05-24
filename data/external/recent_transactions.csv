@@ -1,0 +1,555 @@
+representative,transaction_date,ticker,asset_description,amount,type
+Hon. Alan S. Lowenthal,1/2/20,AAPL,Apple Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,1/2/20,AAPL,Apple Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,2/25/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,2/25/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,2/26/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,2/26/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,2/27/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,2/27/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,3/12/20,BRK.B,Berkshire Hathaway Inc. New,"$1,001 - $15,000",sale_full
+Hon. Alan S. Lowenthal,3/12/20,BRK.B,Berkshire Hathaway Inc. New,"$15,001 - $50,000",sale_partial
+Hon. Alan S. Lowenthal,3/12/20,BRK.B,Berkshire Hathaway Inc. New,"$1,001 - $15,000",sale_full
+Hon. Alan S. Lowenthal,3/16/20,BRK.B,Berkshire Hathaway Inc. New,"$1,001 - $15,000",sale_full
+Hon. Alan S. Lowenthal,3/16/20,AMZN,"Amazon.com, Inc.","$1,001 - $15,000",purchase
+Hon. Alan S. Lowenthal,3/16/20,AMZN,"Amazon.com, Inc.","$1,001 - $15,000",purchase
+Hon. Alan S. Lowenthal,3/17/20,RUN,Sunrun Inc.,"$1,001 - $15,000",purchase
+Hon. Alan S. Lowenthal,3/17/20,RUN,Sunrun Inc.,"$1,001 -",purchase
+Hon. Alan S. Lowenthal,3/18/20,RUN,Sunrun Inc.,"$1,001 - $15,000",purchase
+Hon. Alan S. Lowenthal,3/18/20,RUN,Sunrun Inc.,"$1,001 -",purchase
+Hon. Alan S. Lowenthal,3/19/20,RUN,Sunrun Inc.,"$1,001 - $15,000",purchase
+Hon. Alan S. Lowenthal,3/19/20,RUN,Sunrun Inc.,"$1,001 -",purchase
+Hon. Alan S. Lowenthal,6/18/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,6/18/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/19/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/19/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/19/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/19/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/19/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,6/19/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/19/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,6/19/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/19/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,6/19/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/19/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/19/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/22/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/22/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/22/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/22/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/22/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/22/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/23/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/23/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/23/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/23/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/23/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/23/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/29/20,FB,"Facebook, Inc. - Class A","$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,6/29/20,FB,"Facebook, Inc. - Class A","$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,7/1/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,7/1/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,7/1/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/1/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/1/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/1/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/1/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/1/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/2/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,7/2/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/2/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/2/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,7/2/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/2/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,7/2/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/2/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/10/20,AMZN,"Amazon.com, Inc.","$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,7/13/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,8/25/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,8/25/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,8/26/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,8/26/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,8/26/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,8/26/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,9/3/20,AMZN,"Amazon.com, Inc.","$1,001 - $15,000",sale_full
+Hon. Alan S. Lowenthal,9/3/20,AAPL,Apple Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,9/3/20,AMZN,"Amazon.com, Inc.","$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,9/3/20,AAPL,Apple Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,10/2/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,10/2/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,10/6/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,10/7/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,10/7/20,RUN,Sunrun Inc.,"$1,001 -",sale_partial
+Hon. Alan S. Lowenthal,10/7/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,10/7/20,RUN,Sunrun Inc.,"$1,001 - $15,000",sale_partial
+Hon. Alan S. Lowenthal,10/13/20,RUN,Sunrun Inc.,"$1,001 - $15,000",purchase
+Hon. Alan S. Lowenthal,11/12/20,RUN,Sunrun Inc.,"$1,001 - $15,000",purchase
+Hon. Alan S. Lowenthal,2/23/21,FB,Facebook - Class A,"$1,001 - $15,000",sale_full
+Hon. Alan S. Lowenthal,3/11/21,NVDA,NVIDIA Corporation,"$1,001 - $15,000",purchase
+Hon. Alan S. Lowenthal,3/23/21,NVDA,NVIDIA Corporation,"$1,001 - $15,000",purchase
+Hon. Alan S. Lowenthal,1/14/22,RUN,Sunrun Inc,"$1,001 - $15,000",purchase
+Hon. Alan S. Lowenthal,4/6/22,NVDA,NVIDIA Corporation,"$1,001 - $15,000",sale_partial
+Hon. Dean Phillips,1/7/20,BRK.B,Berkshire Hathaway Inc. New,"$1,001 - $15,000",purchase
+Hon. Dean Phillips,2/10/20,BRK.B,Berkshire Hathaway Inc. New,"$15,001 - $50,000",sale_partial
+Hon. Dean Phillips,4/2/20,AMZN,"Amazon.com, Inc.","$1,001 - $15,000",purchase
+Hon. Dean Phillips,4/2/20,AAPL,Apple Inc.,"$1,001 - $15,000",purchase
+Hon. Dean Phillips,4/2/20,FB,"Facebook, Inc. - Class A","$1,001 - $15,000",sale_partial
+Hon. Dean Phillips,5/13/20,FB,"Facebook, Inc. - Class A","$1,001 - $15,000",purchase
+Hon. Dean Phillips,8/10/20,FB,"Facebook, Inc. - Class A","$1,001 - $15,000",purchase
+Hon. Dean Phillips,8/10/20,NTAP,"NetApp, Inc.","$1,001 - $15,000",purchase
+Hon. Dean Phillips,9/23/20,AMZN,"Amazon.com, Inc.","$1,001 - $15,000",purchase
+Hon. Dean Phillips,9/23/20,AAPL,Apple Inc.,"$1,001 - $15,000",purchase
+Hon. Dean Phillips,9/23/20,FB,"Facebook, Inc. - Class A","$1,001 - $15,000",purchase
+Hon. Dean Phillips,12/18/20,TSLA,Tesla Inc,"$50,001 - $100,000",purchase
+Hon. Dean Phillips,1/5/21,TSLA,Tesla Inc,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,10/16/19,TDDXX,BLF FedFund,"$1,000,001 - $5,000,000",purchase
+Hon. Donald Sternoff Beyer,12/16/19,TDDXX,BLF FedFund,"$50,001 - $100,000",sale_full
+Hon. Donald Sternoff Beyer,12/23/19,AAPL,Apple Inc.,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,12/23/19,TDDXX,BLF FedFund,"$50,001 - $100,000",sale_full
+Hon. Donald Sternoff Beyer,12/24/19,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,12/24/19,MSFT,Microsoft Corporation,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,12/24/19,NVDA,NVIDIA Corporation,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,12/31/19,TDDXX,BLF FedFund,"$50,001 - $100,000",sale_full
+Hon. Donald Sternoff Beyer,1/9/20,TDDXX,BLF FedFund,"$100,001 - $250,000",sale_full
+Hon. Donald Sternoff Beyer,1/9/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,1/10/20,AMZN,"Amazon.com, Inc.","$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,1/10/20,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,1/10/20,NVDA,NVIDIA Corporation,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,1/13/20,BRK.B,Berkshire Hathaway Inc. New,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,1/13/20,TDDXX,BLF FedFund,"$50,001 - $100,000",sale_full
+Hon. Donald Sternoff Beyer,1/14/20,AAPL,Apple Inc.,"$15,001 - $50,000",purchase
+Hon. Donald Sternoff Beyer,1/14/20,TDDXX,BLF FedFund,"$50,001 - $100,000",sale_full
+Hon. Donald Sternoff Beyer,1/15/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,1/16/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,1/24/20,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,1/24/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,1/27/20,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,1/28/20,AAPL,Apple Inc.,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,1/28/20,TDDXX,BLF FedFund,"$50,001 - $100,000",sale_full
+Hon. Donald Sternoff Beyer,1/29/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,1/30/20,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,2/3/20,TDDXX,BLF FedFund,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,2/4/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,2/7/20,TDDXX,BLF FedFund,"$50,001 - $100,000",sale_full
+Hon. Donald Sternoff Beyer,2/14/20,TDDXX,BLF FedFund,"$100,001 - $250,000",sale_full
+Hon. Donald Sternoff Beyer,2/14/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,2/18/20,AAPL,Apple Inc.,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,2/18/20,TDDXX,BLF FedFund,"$50,001 - $100,000",sale_full
+Hon. Donald Sternoff Beyer,2/19/20,AMZN,"Amazon.com, Inc.","$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,2/19/20,TDDXX,BLF FedFund,"$50,001 - $100,000",sale_full
+Hon. Donald Sternoff Beyer,2/20/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,3/2/20,TDDXX,BLF FedFund,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,3/3/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,3/6/20,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,3/10/20,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,3/11/20,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,3/23/20,TDDXX,BLF FedFund,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,3/24/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,4/1/20,TDDXX,BLF FedFund,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,4/2/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,4/20/20,TDDXX,BLF FedFund,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,4/20/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,4/20/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,4/22/20,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,4/27/20,AMZN,"Amazon.com, Inc.","$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,4/27/20,AAPL,Apple Inc.,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,4/27/20,TDDXX,BLF FedFund,"$50,001 - $100,000",purchase
+Hon. Donald Sternoff Beyer,4/27/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,4/28/20,BRK.B,Berkshire Hathaway Inc. New,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,4/28/20,TDDXX,BLF FedFund,"$50,001 - $100,000",purchase
+Hon. Donald Sternoff Beyer,4/29/20,TDDXX,BLF FedFund,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,5/1/20,AMZN,"Amazon.com, Inc.","$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,5/1/20,AAPL,Apple Inc.,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,5/1/20,TDDXX,BLF FedFund,"$50,001 - $100,000",purchase
+Hon. Donald Sternoff Beyer,5/1/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,5/1/20,NVDA,NVIDIA Corporation,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,5/4/20,TDDXX,BLF FedFund,"$15,001 - $50,000",purchase
+Hon. Donald Sternoff Beyer,5/7/20,AAPL,Apple Inc.,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,5/7/20,BRK.B,Berkshire Hathaway Inc. New,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,5/7/20,TDDXX,BLF FedFund,"$15,001 - $50,000",purchase
+Hon. Donald Sternoff Beyer,5/8/20,TDDXX,BLF FedFund,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,5/11/20,TDDXX,BLF FedFund,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,5/18/20,TDDXX,BLF FedFund,"$50,001 - $100,000",sale_full
+Hon. Donald Sternoff Beyer,5/19/20,TDDXX,BLF FedFund,"$500,001 - $1,000,000",sale_full
+Hon. Donald Sternoff Beyer,5/20/20,TDDXX,BLF FedFund,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,5/21/20,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,6/1/20,TDDXX,BLF FedFund,"$50,001 - $100,000",purchase
+Hon. Donald Sternoff Beyer,6/2/20,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,6/24/20,TDDXX,BLF FedFund,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,7/1/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,7/2/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,7/10/20,TDDXX,BLF FedFund,"$50,001 - $100,000",sale_full
+Hon. Donald Sternoff Beyer,7/14/20,AMZN,"Amazon.com, Inc.","$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,7/14/20,AAPL,Apple Inc.,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,7/14/20,BRK.B,Berkshire Hathaway Inc. New,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,7/14/20,TDDXX,BLF FedFund,"$1,000,001 - $5,000,000",sale_full
+Hon. Donald Sternoff Beyer,7/14/20,MSFT,Microsoft Corporation,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,7/14/20,NVDA,NVIDIA Corporation,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,7/27/20,TDDXX,BLF FedFund,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,8/3/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,8/4/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,8/13/20,TDDXX,BLF FedFund,"$50,001 - $100,000",purchase
+Hon. Donald Sternoff Beyer,8/14/20,TDDXX,BLF FedFund,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,8/26/20,TDDXX,BLF FedFund,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,8/27/20,TDDXX,BLF FedFund,"$15,001 - $50,000",purchase
+Hon. Donald Sternoff Beyer,8/28/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,9/2/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,9/3/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,9/9/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,9/11/20,TDDXX,BLF FedFund,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,9/15/20,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,9/29/20,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,10/1/20,TDDXX,BLF FedFund,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,10/2/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,10/5/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,10/8/20,TDDXX,BLF FedFund,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,10/14/20,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,10/22/20,TDDXX,BLF FedFund,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,10/22/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,10/26/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,10/28/20,TDDXX,BLF FedFund,"$250,001 - $500,000",purchase
+Hon. Donald Sternoff Beyer,11/2/20,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,11/3/20,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,11/4/20,AAPL,Apple Inc.,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,11/4/20,NVDA,NVIDIA Corporation,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,11/5/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,11/9/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,11/10/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,11/13/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,11/17/20,AAPL,Apple Inc.,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,11/17/20,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,11/17/20,NVDA,NVIDIA Corporation,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,11/18/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,11/19/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,11/20/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,11/24/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,11/24/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,11/25/20,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,11/27/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,12/24/20,BRK.B,Berkshire Hathaway Inc. New,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,12/26/20,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,12/2/21,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,12/6/21,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,1/6/22,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,1/11/22,TDDXX,BLF FedFund,"$15,001 - $50,000",purchase
+Hon. Donald Sternoff Beyer,1/13/22,TDDXX,BLF FedFund,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,1/14/22,TDDXX,BLF FedFund,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,1/20/22,BRK.B,Berkshire Hathaway Inc,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,1/28/22,BRK.B,Berkshire Hathaway Inc,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,1/31/22,TDDXX,BLF FedFund,"$15,001 - $50,000",purchase
+Hon. Donald Sternoff Beyer,2/3/22,BRK.B,Berkshire Hathaway Inc,"$1,001 - $15,000",purchase
+Hon. Donald Sternoff Beyer,2/28/22,AMZN,Amazon.com Inc,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,2/28/22,BRK.B,Berkshire Hathaway Inc,"$1,001 - $15,000",sale_full
+Hon. Donald Sternoff Beyer,2/28/22,MSFT,Microsoft Corporation,"$15,001 - $50,000",sale_full
+Hon. Donald Sternoff Beyer,2/28/22,NVDA,NVIDIA Corporation,"$15,001 - $50,000",sale_full
+Hon. Gilbert Cisneros,3/18/20,BRK.B,Berkshire Hathaway Inc. New,"$1,001 - $15,000",purchase
+Hon. Gilbert Cisneros,3/18/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",purchase
+Hon. Gilbert Cisneros,3/30/20,NVDA,NVIDIA Corporation,"$1,001 - $15,000",sale_partial
+Hon. Gilbert Cisneros,4/9/20,AMZN,"Amazon.com, Inc.","$1,001 - $15,000",sale_partial
+Hon. Gilbert Cisneros,5/20/20,NVDA,NVIDIA Corporation,"$1,001 - $15,000",sale_partial
+Hon. Gilbert Cisneros,6/11/20,FB,"Facebook, Inc. - Class A","$1,001 - $15,000",sale_partial
+Hon. Gilbert Cisneros,6/11/20,NVDA,NVIDIA Corporation,"$1,001 - $15,000",sale_partial
+Hon. Gilbert Cisneros,8/11/20,AMZN,"Amazon.com, Inc.","$1,001 - $15,000",sale_partial
+Hon. Gilbert Cisneros,8/24/20,NVDA,NVIDIA Corporation,"$1,001 - $15,000",sale_partial
+Hon. Gilbert Cisneros,9/8/20,NVDA,NVIdIA Corporation,"$15,001 - $50,000",sale_partial
+Hon. Gilbert Cisneros,9/16/20,FB,"Facebook, Inc. - Class A","$1,001 - $15,000",purchase
+Hon. Gilbert Cisneros,10/29/20,AMZN,"Amazon.com, Inc.","$15,001 - $50,000",purchase
+Hon. Gilbert Cisneros,10/29/20,AAPL,Apple Inc.,"$15,001 - $50,000",purchase
+Hon. Gilbert Cisneros,11/19/20,AMZN,Amazon,"$15,001 - $50,000",purchase
+Hon. Gilbert Cisneros,11/19/20,AAPL,Apple,"$15,001 - $50,000",purchase
+Hon. Gilbert Cisneros,12/14/20,FB,"Facebook, Inc. - Class A (U.S. Trust Holdings)","$1,001 - $15,000",purchase
+Hon. Gilbert Cisneros,12/22/20,FB,"Facebook, Inc. - Class A (U.S. Trust Holdings)","$1,001 - $15,000",sale_partial
+Hon. Gilbert Cisneros,12/22/20,TSLA,"Tesla, Inc. (U.S. Trust Holdings)","$50,001 - $100,000",purchase
+Hon. Gilbert Cisneros,12/23/20,FB,"Facebook, Inc. - Class A (U.S. Trust Holdings)","$1,001 - $15,000",purchase
+Hon. Gilbert Cisneros,12/31/20,AMZN,"Amazon.com, Inc. (U.S. Trust Holdings)","$1,001 - $15,000",purchase
+Hon. Gilbert Cisneros,12/31/20,FB,"Facebook, Inc. - Class A (U.S. Trust Holdings)","$1,001 - $15,000",purchase
+Hon. Gilbert Cisneros,12/31/20,NVDA,NVIDIA Corp. (U.S. Trust Holdings),"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,11/11/19,TSLA,"Tesla, Inc.","$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,1/9/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",sale_full
+Hon. Josh Gottheimer,1/9/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,1/14/20,AAPL,Apple Inc.,"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,1/16/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,1/29/20,AAPL,Apple Inc.,"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,2/3/20,AAPL,Apple Inc.,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,2/13/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",purchase
+Hon. Josh Gottheimer,2/13/20,MSFT,Microsoft Corporation,"$100,001 - $250,000",purchase
+Hon. Josh Gottheimer,2/13/20,MSFT,Microsoft Corporation,"$250,001 - $500,000",purchase
+Hon. Josh Gottheimer,2/13/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",sale_full
+Hon. Josh Gottheimer,2/13/20,MSFT,Microsoft Corporation,"$250,001 - $500,000",sale_full
+Hon. Josh Gottheimer,2/13/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",sale_full
+Hon. Josh Gottheimer,2/13/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",purchase
+Hon. Josh Gottheimer,2/13/20,MSFT,Microsoft Corporation,"$250,001 - $500,000",purchase
+Hon. Josh Gottheimer,2/13/20,MSFT,Microsoft Corporation,"$100,001 - $250,000",sale_full
+Hon. Josh Gottheimer,2/13/20,MSFT,Microsoft Corporation,"$100,001 - $250,000",sale_full
+Hon. Josh Gottheimer,2/13/20,MSFT,Microsoft Corporation,"$100,001 - $250,000",sale_full
+Hon. Josh Gottheimer,2/13/20,MSFT,Microsoft Corporation,"$250,001 - $500,000",sale_full
+Hon. Josh Gottheimer,2/13/20,MSFT,Microsoft Corporation,"$100,001 - $250,000",purchase
+Hon. Josh Gottheimer,2/13/20,MSFT,Microsoft Corporation,"$100,001 - $250,000",purchase
+Hon. Josh Gottheimer,2/13/20,MSFT,Microsoft Corporation,"$250,001 - $500,000",purchase
+Hon. Josh Gottheimer,2/13/20,MSFT,Microsoft Corporation,"$100,001 - $250,000",purchase
+Hon. Josh Gottheimer,2/13/20,MSFT,Microsoft Corporation,"$100,001 - $250,000",sale_full
+Hon. Josh Gottheimer,2/13/20,MSFT,Microsoft Corporation,"$100,001 - $250,000",sale_full
+Hon. Josh Gottheimer,2/26/20,AMZN,"Amazon.com, Inc.","$15,001 - $50,000",purchase
+Hon. Josh Gottheimer,2/26/20,AAPL,Apple Inc.,"$15,001 - $50,000",purchase
+Hon. Josh Gottheimer,2/26/20,MSFT,Microsoft Corporation,"$15,001 - $50,000",purchase
+Hon. Josh Gottheimer,2/28/20,NVDA,NVIDIA Corporation,"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,3/5/20,AAPL,Apple Inc.,"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,3/6/20,MSFT,Microsoft Corporation,"$15,001 - $50,000",purchase
+Hon. Josh Gottheimer,3/6/20,MSFT,Microsoft Corporation,"$100,001 - $250,000",purchase
+Hon. Josh Gottheimer,3/6/20,MSFT,Microsoft Corporation,"$100,001 - $250,000",purchase
+Hon. Josh Gottheimer,3/6/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",sale_full
+Hon. Josh Gottheimer,3/6/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",sale_full
+Hon. Josh Gottheimer,3/6/20,MSFT,Microsoft Corporation,"$100,001 - $250,000",sale_full
+Hon. Josh Gottheimer,3/6/20,MSFT,Microsoft Corporation,"$100,001 - $250,000",purchase
+Hon. Josh Gottheimer,3/6/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",sale_full
+Hon. Josh Gottheimer,3/12/20,MSFT,Microsoft Corporation,"$15,001 - $50,000",purchase
+Hon. Josh Gottheimer,3/12/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",purchase
+Hon. Josh Gottheimer,3/12/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",purchase
+Hon. Josh Gottheimer,3/12/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",purchase
+Hon. Josh Gottheimer,3/12/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",purchase
+Hon. Josh Gottheimer,3/12/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",purchase
+Hon. Josh Gottheimer,3/12/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",sale_full
+Hon. Josh Gottheimer,3/12/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",sale_full
+Hon. Josh Gottheimer,3/12/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",sale_full
+Hon. Josh Gottheimer,3/12/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",sale_full
+Hon. Josh Gottheimer,3/12/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",sale_full
+Hon. Josh Gottheimer,3/12/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",sale_full
+Hon. Josh Gottheimer,3/12/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",sale_full
+Hon. Josh Gottheimer,3/17/20,AMZN,"Amazon.com, Inc.","$15,001 - $50,000",purchase
+Hon. Josh Gottheimer,3/17/20,MSFT,Microsoft Corporation,"$15,001 - $50,000",purchase
+Hon. Josh Gottheimer,3/17/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,3/20/20,AAPL,Apple Inc.,"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,3/20/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",purchase
+Hon. Josh Gottheimer,3/20/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",sale_full
+Hon. Josh Gottheimer,3/20/20,MSFT,Microsoft Corporation,"$100,001 - $250,000",purchase
+Hon. Josh Gottheimer,3/20/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",sale_full
+Hon. Josh Gottheimer,3/23/20,AAPL,Apple Inc.,"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,3/24/20,MSFT,Microsoft Corporation,"$50,001 - $100,000",purchase
+Hon. Josh Gottheimer,4/13/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,4/17/20,TSLA,"Tesla, Inc.","$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,4/20/20,AAPL,Apple Inc.,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,4/30/20,FB,"Facebook, Inc. - Class A","$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,5/15/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,5/18/20,AMZN,"Amazon.com, Inc.","$50,001 - $100,000",sale_full
+Hon. Josh Gottheimer,5/18/20,AAPL,Apple Inc.,"$15,001 - $50,000",sale_full
+Hon. Josh Gottheimer,5/18/20,MSFT,Microsoft Corporation,"$15,001 - $50,000",sale_full
+Hon. Josh Gottheimer,5/22/20,TSLA,"Tesla, Inc.","$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,6/1/20,NVDA,NVIDIA Corporation,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,6/22/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,6/26/20,AAPL,Apple Inc.,"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,7/14/20,TSLA,"Tesla, Inc.","$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,7/23/20,AAPL,Apple Inc.,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,7/23/20,BRK.B,Berkshire Hathaway Inc. New,"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,8/4/20,FB,"Facebook, Inc. - Class A","$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,9/1/20,AAPL,Apple Inc.,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,9/14/20,NVDA,NVIDIA Corporation,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,9/15/20,AAPL,Apple Inc.,"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,11/6/20,FB,"Facebook, Inc. - Class A","$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,11/6/20,TSLA,"Tesla, Inc.","$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,11/11/20,NVDA,NVIDIA Corporation,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,11/13/20,TSLA,"Tesla, Inc.","$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,11/16/20,NVDA,NVIDIA Corporation,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,11/16/20,TSLA,"Tesla, Inc.","$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,11/17/20,MSFT,Microsoft Corporation,"$100,001 - $250,000",purchase
+Hon. Josh Gottheimer,11/17/20,MSFT,Microsoft Corporation,"$100,001 - $250,000",purchase
+Hon. Josh Gottheimer,11/17/20,MSFT,Microsoft Corporation,"$250,001 - $500,000",purchase
+Hon. Josh Gottheimer,11/17/20,MSFT,Microsoft Corporation,"$500,001 - $1,000,000",purchase
+Hon. Josh Gottheimer,11/17/20,MSFT,Microsoft Corporation,"$250,001 - $500,000",sale_full
+Hon. Josh Gottheimer,11/17/20,MSFT,Microsoft Corporation,"$250,001 - $500,000",sale_full
+Hon. Josh Gottheimer,11/17/20,MSFT,Microsoft Corporation,"$500,001 - $1,000,000",sale_full
+Hon. Josh Gottheimer,11/17/20,MSFT,Microsoft Corporation,"$100,001 - $250,000",sale_full
+Hon. Josh Gottheimer,12/22/20,BRK.B,Berkshire Hathaway Class B,"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,2/12/21,MSFT,Microsoft Corporation,"$15,001 - $50,000",purchase
+Hon. Josh Gottheimer,2/12/21,MSFT,Microsoft Corporation,"$1,000,001 - $5,000,000",sale_full
+Hon. Josh Gottheimer,2/12/21,MSFT,Microsoft Corporation,"$250,001 - $500,000",sale_full
+Hon. Josh Gottheimer,2/12/21,MSFT,Microsoft Corporation,"$1,001 - $15,000",sale_full
+Hon. Josh Gottheimer,2/12/21,MSFT,Microsoft Corporation,"$1,000,001 - $5,000,000",sale_full
+Hon. Josh Gottheimer,2/12/21,MSFT,Microsoft Corporation,"$1,000,001 - $5,000,000",purchase
+Hon. Josh Gottheimer,2/12/21,MSFT,Microsoft Corporation,"$1,000,001 - $5,000,000",purchase
+Hon. Josh Gottheimer,2/12/21,MSFT,Microsoft Corporation,"$250,001 - $500,000",purchase
+Hon. Josh Gottheimer,2/12/21,MSFT,Microsoft Corporation,"$15,001 - $50,000",sale_partial
+Hon. Josh Gottheimer,2/25/21,MSFT,Microsoft Corporation,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,3/10/21,TSLA,Tesla Inc,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,3/15/21,AAPL,Apple Inc,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,3/15/21,NVDA,NVIDIA Corporation,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,3/15/21,TSLA,Tesla Inc,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,3/17/21,NVDA,NVIDIA Corporation,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,3/22/21,AAPL,Apple Inc,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,3/22/21,TSLA,Tesla Inc,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,4/5/21,TSLA,Tesla Inc,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,4/16/21,FB,Facebook Inc Class A,"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,4/30/21,TSLA,Tesla Inc,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,4/30/21,TSLA,Tesla Inc,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,6/4/21,TSLA,Tesla Inc,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,6/22/21,MSFT,Microsoft Corporation,"$50,001 - $100,000",purchase
+Hon. Josh Gottheimer,6/22/21,MSFT,Microsoft Corporation,"$15,001 - $50,000",sale_full
+Hon. Josh Gottheimer,6/22/21,MSFT,Microsoft Corporation,"$15,001 - $50,000",sale_full
+Hon. Josh Gottheimer,6/24/21,BRK.B,Berkshire Hathaway Inc New,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,7/28/21,AAPL,Apple Inc,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,7/28/21,NVDA,NVIDIA Corporation,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,8/16/21,MSFT,Microsoft Corporation - CALL Options. Strike $150 expiry 10/15/21,"$1,000,001 - $5,000,000",purchase
+Hon. Josh Gottheimer,8/16/21,MSFT,Microsoft Corporation Microsoft Corporation - CALL Options. Strike $145 expiry 10/15/21,"$500,001 - $1,000,000",purchase
+Hon. Josh Gottheimer,8/16/21,MSFT,Microsoft Corporation - CALL Options. Strike $150 expiry 11/19/21,"$500,001 - $1,000,000",purchase
+Hon. Josh Gottheimer,8/16/21,MSFT,Microsoft Corporation - CALL Options. Strike $150 expiry 3/18/22,"$500,001 - $1,000,000",sale_full
+Hon. Josh Gottheimer,8/16/21,MSFT,Microsoft Corporation - CALL Options. Strike $150 expiry 3/18/22,"$1,000,001 - $5,000,000",sale_full
+Hon. Josh Gottheimer,8/16/21,MSFT,Microsoft Corporation - CALL Options. Strike $150 expiry 3/18/22,"$1,000,001 - $5,000,000",sale_full
+Hon. Josh Gottheimer,8/16/21,MSFT,Microsoft Corporation - CALL Options. Strike $145 expiry 3/18/22,"$500,001 - $1,000,000",sale_full
+Hon. Josh Gottheimer,8/16/21,MSFT,Microsoft Corporation - CALL Options. Strike $160 expiry 1/21/22,"$500,001 - $1,000,000",sale_full
+Hon. Josh Gottheimer,8/16/21,MSFT,Microsoft Corporation - CALL Options. Strike $160 expiry 09/17/21,"$500,001 - $1,000,000",purchase
+Hon. Josh Gottheimer,8/16/21,MSFT,Microsoft Corporation - CALL Options. Strike $150 expiry 9/17/21,"$1,000,001 - $5,000,000",purchase
+Hon. Josh Gottheimer,10/5/21,NVDA,NVIDIA Corporation,"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,10/18/21,FB,Meta Platform Inc - Class A,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,10/19/21,MSFT,Microsoft Corporation,"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,10/19/21,TSLA,Tesla Inc,"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,10/26/21,FB,Meta Platform Inc - Class A,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,10/27/21,FB,Meta Platform Inc - Class A,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,10/27/21,MSFT,Microsoft Corporation,"$15,001 - $50,000",purchase
+Hon. Josh Gottheimer,10/29/21,AAPL,Apple Inc,"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,10/29/21,NVDA,NVIDIA Corporation,"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,11/15/21,MSFT,"Microsoft Corporation - Call option, strike of $150 expires 3/18/2022","$5,000,001 - $25,000,000",purchase
+Hon. Josh Gottheimer,11/15/21,MSFT,"Microsoft Corporation - Call option, strike of $145 expires 3/18/2022","$1,000,001 - $5,000,000",purchase
+Hon. Josh Gottheimer,11/15/21,MSFT,"Microsoft Corporation - Call option, strike of $160 expires 1/21/2022","$500,001 - $1,000,000",purchase
+Hon. Josh Gottheimer,11/15/21,MSFT,"Microsoft Corporation - Call option, strike of $160 expires 9/16/2022","$500,001 - $1,000,000",sale_full
+Hon. Josh Gottheimer,11/15/21,MSFT,"Microsoft Corporation - Call option, strike of $150 expires 9/216/2022","$5,000,001 - $25,000,000",sale_full
+Hon. Josh Gottheimer,12/2/21,FB,Meta Platforms Inc -  Class A,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,12/6/21,MSFT,Microsoft Corporation,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,12/29/21,FB,Meta Platforms Inc -  Class A,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,1/25/22,MSFT,Microsoft Corporation - Call Options $145 strike Expire 09/16/2022,"$50,001 - $100,000",purchase
+Hon. Josh Gottheimer,1/26/22,NVDA,NVIDIA Corporation,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,1/26/22,TSLA,Tesla Inc,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,1/31/22,NVDA,NVIDIA Corporation,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,1/31/22,TSLA,Tesla Inc,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,2/7/22,FB,"Meta Platforms Inc, Class A","$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,2/7/22,TSLA,Tesla Inc,"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,2/10/22,MSFT,Microsoft Corporation - Call Option Strike $160 - expiry 1/20/2023,"$500,001 - $1,000,000",sale_full
+Hon. Josh Gottheimer,2/10/22,MSFT,Microsoft Corporation - Call Option Strike $155 - expiry 1/20/2023,"$250,001 - $500,000",sale_full
+Hon. Josh Gottheimer,2/10/22,MSFT,Microsoft Corporation - Call Option Strike $150 - expiry 1/20/2023,"$1,000,001 - $5,000,000",sale_full
+Hon. Josh Gottheimer,2/10/22,MSFT,Microsoft Corporation - Call Option Strike $145 - expiry 1/20/2023,"$250,001 - $500,000",sale_full
+Hon. Josh Gottheimer,2/10/22,MSFT,Microsoft Corporation - Call Option Strike $160 - expiry 9/16/2022,"$500,001 - $1,000,000",purchase
+Hon. Josh Gottheimer,2/10/22,MSFT,Microsoft Corporation - Call Option Strike $150 - expiry 9/16/2022,"$1,000,001 - $5,000,000",purchase
+Hon. Josh Gottheimer,2/10/22,MSFT,Microsoft Corporation - Call Option Strike $145 - expiry 9/16/2022,"$500,001 - $1,000,000",purchase
+Hon. Josh Gottheimer,3/9/22,AAPL,Apple Inc,"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,3/9/22,MSFT,Microsoft Corporation,"$1,001 - $15,000",purchase
+Hon. Josh Gottheimer,3/15/22,AAPL,Apple Inc,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,4/1/22,BRK.B,Berkshire Hathaway Inc New,"$1,001 - $15,000",sale_partial
+Hon. Josh Gottheimer,4/19/22,AAPL,Apple Inc,"$15,001 - $50,000",purchase
+Hon. Josh Gottheimer,4/20/22,FB,Meta Platforms Inc Class A,"$1,001 - $15,000",sale_partial
+Hon. Kevin Hern,3/26/20,AMZN,"Amazon.com, Inc.","$100,001 - $250,000",purchase
+Hon. Kevin Hern,3/26/20,MSFT,Microsoft Corporation,"$250,001 - $500,000",purchase
+Hon. Kevin Hern,4/9/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",purchase
+Hon. Kevin Hern,6/11/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",purchase
+Hon. Kevin Hern,7/27/20,AMZN,"Amazon.com, Inc.","$1,001 - $15,000",purchase
+Hon. Kevin Hern,7/27/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",purchase
+Hon. Kevin Hern,9/10/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",purchase
+Hon. Kevin Hern,12/10/20,MSFT,Microsoft Corporation,"$1,001 - $15,000",purchase
+Hon. Kevin Hern,3/11/21,MSFT,Microsoft Corporation,"$1,001 - $15,000",purchase
+Hon. Kevin Hern,6/10/21,MSFT,Microsoft Inc,"$1,001 - $15,000",purchase
+Hon. Kevin Hern,6/25/21,MSFT,Microsoft Inc,"$250,001 - $500,000",purchase
+Hon. Kevin Hern,6/25/21,MSFT,Microsoft Inc,"$100,001 - $250,000",purchase
+Hon. Kevin Hern,7/21/21,MSFT,Microsoft Corporation,"$100,001 - $250,000",purchase
+Hon. Kevin Hern,7/30/21,AMZN,Amazon.com Inc,"$50,001 - $100,000",purchase
+Hon. Kevin Hern,9/9/21,MSFT,Microsoft Corporation,"$1,001 - $15,000",purchase
+Hon. Kevin Hern,12/9/21,MSFT,Microsoft Corporation,"$1,001 - $15,000",purchase
+Hon. Kevin Hern,3/10/22,MSFT,Microsoft Corporation,"$1,001 - $15,000",purchase
+Hon. Kurt Schrader,6/3/20,NVDA,Nivida,"$1,001 - $15,000",purchase
+Hon. Kurt Schrader,6/19/20,FB,Facebook class A,"$1,001 - $15,000",sale_full
+Hon. Kurt Schrader,6/19/20,MSFT,Microsoft,"$1,001 - $15,000",sale_full
+Hon. Kurt Schrader,6/19/20,AAPL,Apple,"$1,001 - $15,000",sale_full
+Hon. Kurt Schrader,2/5/21,MSFT,Microsoft Corp,"$1,001 - $15,000",purchase
+Hon. Kurt Schrader,2/10/21,MSFT,Microsoft Corp,"$1,001 - $15,000",purchase
+Hon. Kurt Schrader,3/1/21,MSFT,Microsoft Inc,"$1,001 - $15,000",sale_full
+Hon. Kurt Schrader,8/11/21,MSFT,Microsoft Corporation,"$1,001 - $15,000",sale_full
+Hon. Kurt Schrader,8/11/21,AAPL,Apple Inc,"$1,001 - $15,000",sale_full
+Hon. Kurt Schrader,8/30/21,MSFT,Microsoft Corporation,"$15,001 - $50,000",sale_full
+Hon. Kurt Schrader,9/1/21,FB,Facebook Inc Class A,"$1,001 - $15,000",sale_full
+Hon. Kurt Schrader,9/13/21,MSFT,Microsoft Inc,"$1,001 - $15,000",purchase
+Hon. Kurt Schrader,12/14/21,NVDA,Nvidia Corp,"$1,001 - $15,000",purchase
+Hon. Kurt Schrader,1/5/22,MSFT,Microsoft Corporation,"$1,001 - $15,000",sale_full
+Hon. Kurt Schrader,2/9/22,FB,Meta Platforms Inc,"$1,001 - $15,000",sale_full
+Hon. Kurt Schrader,2/22/22,NVDA,NVIDIA Corporation,"$1,001 - $15,000",purchase
+Hon. Kurt Schrader,4/21/22,AAPL,Apple Inc,"$1,001 - $15,000",sale_full
+Hon. Michael T. McCaul,1/15/21,FB,Facebook Inc,"$100,001 - $250,000",purchase
+Hon. Michael T. McCaul,1/15/21,FB,Facebook Inc,"$100,001 - $250,000",purchase
+Hon. Michael T. McCaul,2/5/21,AMZN,Amazon Inc,"$50,001 - $100,000",purchase
+Hon. Michael T. McCaul,2/5/21,AMZN,AMAZON INC,"$50,001 - $100,000",purchase
+Hon. Michael T. McCaul,2/18/21,FB,Facebook Inc,"$100,001 - $250,000",purchase
+Hon. Michael T. McCaul,2/18/21,FB,Facebook Inc,"$250,001 - $500,000",purchase
+Hon. Michael T. McCaul,2/26/21,BRK.B,BERKSHIRE HATHAWAY,"$100,001 - $250,000",sale_full
+Hon. Michael T. McCaul,2/26/21,BRK.B,Berkshire Hathaway,"$100,001 - $250,000",sale_full
+Hon. Michael T. McCaul,3/9/21,NVDA,NVIDIA Corp,"$15,001 - $50,000",purchase
+Hon. Michael T. McCaul,3/9/21,NVDA,NVIDIA Corp,"$15,001 - $50,000",purchase
+Hon. Michael T. McCaul,3/10/21,NVDA,NVIDIA,"$15,001 - $50,000",purchase
+Hon. Michael T. McCaul,3/10/21,BRK.B,Berkshire Hathaway Inc,"$100,001 - $250,000",purchase
+Hon. Michael T. McCaul,3/10/21,BRK.B,Berkshire Hathaway Inc,"$100,001 - $250,000",sale_full
+Hon. Michael T. McCaul,3/10/21,BRK.B,Berkshire Hathaway Inc,"$100,001 - $250,000",sale_full
+Hon. Michael T. McCaul,3/10/21,NVDA,NVIDIA,"$15,001 - $50,000",purchase
+Hon. Michael T. McCaul,3/10/21,BRK.B,Berkshire Hathaway Inc,"$100,001 - $250,000",purchase
+Hon. Michael T. McCaul,3/10/21,BRK.B,Berkshire Hathaway Inc,"$100,001 - $250,000",sale_full
+Hon. Michael T. McCaul,3/10/21,BRK.B,Berkshire Hathaway Inc,"$100,001 - $250,000",sale_full
+Hon. Michael T. McCaul,3/16/21,NVDA,NVIDIA Corp,"$50,001 - $100,000",purchase
+Hon. Michael T. McCaul,3/16/21,NVDA,NVIDIA Corp,"$50,001 - $100,000",purchase
+Hon. Michael T. McCaul,3/23/21,NVDA,NVIDIA Corp,"$15,001 - $50,000",purchase
+Hon. Michael T. McCaul,3/23/21,NVDA,NVIDIA Corp,"$15,001 - $50,000",purchase
+Hon. Nancy Pelosi,1/16/20,AMZN,"Amazon.com, Inc. / Exercised 30 call options (3,000 shares) expiring 1/17/2020 at a strike price of $1600.","$1,000,001 - $5,000,000",purchase
+Hon. Nancy Pelosi,1/16/20,AMZN,"Amazon.com, Inc. / Sold 20 call options with a strike price of $1,700 and an expiration date of 1/17/20.","$250,001 - $500,000",sale_full
+Hon. Nancy Pelosi,1/16/20,AMZN,"Amazon.com, Inc. / Sold 20 call options with a strike price of $1,600 and an expiration date of 1/17/20.","$250,001 - $500,000",sale_full
+Hon. Nancy Pelosi,1/16/20,FB,"Facebook, Inc. - Class A / Exercised 30 call options (3,000 shares) expiring 1/17/20 at a strike price of $140.","$250,001 - $500,000",purchase
+Hon. Nancy Pelosi,1/16/20,FB,"Facebook, Inc. - Class A / Exercised 20 call options (2,000 shares) expiring 1/17/20 at a strike price of $150.","$250,001 - $500,000",purchase
+Hon. Nancy Pelosi,2/20/20,MSFT,Microsoft Corporation,"$250,001 - $500,000",purchase
+Hon. Nancy Pelosi,2/21/20,MSFT,Microsoft Corporation,"$500,001 - $1,000,000",purchase
+Hon. Nancy Pelosi,2/28/20,MSFT,Microsoft Corporation,"$100,001 - $250,000",purchase
+Hon. Nancy Pelosi,5/8/20,AAPL,Apple Inc.,"$500,001 - $1,000,000",sale_partial
+Hon. Nancy Pelosi,5/8/20,AAPL,Apple Inc.,"$500,001 - $1,000,000",sale_partial
+Hon. Nancy Pelosi,5/8/20,AAPL,Apple Inc.,"$1,000,001 - $5,000,000",sale_partial
+Hon. Nancy Pelosi,5/8/20,FB,"Facebook, Inc. - Class A","$1,000,001 - $5,000,000",sale_partial
+Hon. Nancy Pelosi,6/18/20,AAPL,Apple Inc.,"$1,000,001 - $5,000,000",sale_full
+Hon. Nancy Pelosi,8/7/20,FB,"Facebook, Inc. - Class A","$1,000,001 - $5,000,000",sale_full
+Hon. Nancy Pelosi,11/6/20,AAPL,Apple Inc.,"$500,001 - $1,000,000",sale_partial
+Hon. Nancy Pelosi,12/22/20,AAPL,Apple Inc. Purchased 100 call options with a strike price of $100 and an expiration date of 1/21/22.,"$250,001 - $500,000",purchase
+Hon. Nancy Pelosi,12/22/20,TSLA,Tesla Inc. Purchased 25 call options with a strike price of $500 and an expiration date of 3/18/22.,"$500,001 - $1,000,000",purchase
+Hon. Nancy Pelosi,3/19/21,MSFT,Microsoft Corporation - Exercised 150 call options (15K shares) expiring 3/19/2021 @ $130,"$1,000,001 - $5,000,000",purchase
+Hon. Nancy Pelosi,3/19/21,MSFT,Microsoft Corporation - Exercised 100 call options (10K shares) expiring 3/19/2021 @ $140,"$1,000,001 - $5,000,000",purchase
+Hon. Nancy Pelosi,5/21/21,AMZN,Amazon.com Inc,"$500,001 - $1,000,000",purchase
+Hon. Nancy Pelosi,5/21/21,AAPL,Apple Inc,"$100,001 - $250,000",purchase
+Hon. Nancy Pelosi,6/3/21,NVDA,NVIDIA Corporation,"$1,000,001 - $5,000,000",purchase
+Hon. Nancy Pelosi,7/23/21,NVDA,"NVIDIA Corporation - purchased 5,000 shares","$500,001 - $1,000,000",purchase
+Hon. Nancy Pelosi,7/23/21,NVDA,NVIDIA Corporation - Purchased 50 Call options with strike of $100 for 9/16/2022,"$250,001 - $500,000",purchase
+Hon. Nancy Pelosi,12/30/21,AAPL,Apple Inc - Contribution of 3K shares held personally to the Paul F Pelosi Endowed Fund Georgetown University,"$500,001 - $1,000,000",sale_partial
+Hon. Nancy Pelosi,12/30/21,AAPL,Apple Inc - Contribution of 3K shares held personally to Trinity College,"$500,001 - $1,000,000",sale_partial
+Hon. Nancy Pelosi,1/21/22,AAPL,Apple Inc - Excercised 100 Call options (10K shares) expiry 01/21/2022 @ $100,"$1,000,001 - $5,000,000",purchase
+Hon. Nancy Pelosi,3/17/22,TSLA,Tesla Inc - Exercised 25 Call options 2.5K shares expiring 3/18/22 @ $500,"$1,000,001 - $5,000,000",purchase
+Hon. Rohit Khanna,2/11/21,BRK.B,Berkshire Hathaway Class B (2020 Irrev Trust FBO Grandchildren),"$1,001 - $15,000",purchase
+Hon. Rohit Khanna,2/11/21,FB,Facebook Inc (2020 Irrev Trust FBO Grandchildren),"$1,001 - $15,000",purchase
+Hon. Rohit Khanna,2/11/21,BRK.B,Berkshire Hathaway Inc Class B (Ritu 1985 Trust),"$15,001 - $50,000",purchase
+Hon. Rohit Khanna,2/11/21,FB,Facebook Inc (Ritu 1985 Trust),"$1,001 - $15,000",purchase
+Hon. Rohit Khanna,2/22/21,FB,Facebook Class A,"$1,001 - $15,000",purchase
+Hon. Rohit Khanna,2/23/21,FB,Facebook Inc Class A (Ritu 1985 Trust),"$1,001 - $15,000",purchase
+Hon. Rohit Khanna,2/24/21,FB,Facebook Inc Class A (Ritu 1985 Trust),"$1,001 - $15,000",purchase
+Hon. Rohit Khanna,3/8/21,FB,Facebook Class A,"$1,001 - $15,000",purchase
+Hon. Rohit Khanna,3/24/21,NVDA,Nvidia Corporation,"$1,001 - $15,000",purchase
+Hon. Rohit Khanna,3/24/21,NVDA,Nvidia Corp,"$1,001 - $15,000",purchase
+Hon. Rohit Khanna,6/18/21,NVDA,Nvidia Corporation,"$1,001 - $15,000",sale_partial
+Hon. Rohit Khanna,6/22/21,NVDA,Nvida Corporation,"$1,001 - $15,000",sale_partial

@@ -10,8 +10,8 @@ import requests
 import boto3
 import botocore
 import pandas as pd
-from botocore.exceptions import ClientError
 
+from botocore.exceptions import ClientError
 
 logger = logging.getLogger(__name__)
 
@@ -67,7 +67,7 @@ def upload_s3(s3path, local_path):
     try:
         response = client.upload_file(local_path, s3bucket, s3_just_path)
     except botocore.exceptions.NoCredentialsError:
-        logger.error('Please provide AWS credentials via AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY env variables.')
+        logger.error('Please provide AWS_ACCESS_KEY_ID & AWS_SECRET_ACCESS_KEY env vars.')
     except boto3.exceptions.S3UploadFailedError:
         logger.error("Please provide a valid S3 bucket name.")
     else:
@@ -84,9 +84,9 @@ def download_s3(s3path, local_path, sep):
         None
     '''
     try:
-        df = pd.read_csv(s3path, sep=sep)
+        df = pd.read_csv(s3path,sep=sep)
     except botocore.exceptions.NoCredentialsError:
-        logger.error('Please provide AWS credentials via AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY env variables.')
+        logger.error('Please provide AWS_ACCESS_KEY_ID & AWS_SECRET_ACCESS_KEY env vars.')
     else:
         df.to_csv(local_path, sep=sep, index=False)
         logger.info('Data downloaded from %s to %s', s3path, local_path)

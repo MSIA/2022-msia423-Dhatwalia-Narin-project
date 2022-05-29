@@ -1,3 +1,6 @@
+"""
+This module writes data to RDS or local SQLite database
+"""
 from enum import unique
 import logging.config
 import os

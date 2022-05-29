@@ -23,13 +23,44 @@ acquire:
     stockwatcher: data/external/stockwatcher.csv
     current_price: data/external/current_price.csv 
     transact_price: data/external/transact_price.csv 
-  
-  download_s3:
-    local_path: 
-    sep: ','
 
 create_db:
   local_path: data/external/recent_transactions.csv
+
+clean:
+  stockwatcher:
+    local_path: data/s3_downloads/stockwatcher.csv
+  transact:
+    local_path: data/s3_downloads/transact_price.csv
+  current:
+    local_path: data/s3_downloads/current_price.csv
+  filter:
+    columns: ['transaction_date',
+              'disclosure_date',
+              'disclosure_year',
+              'cap_gains_over_200_usd',
+              'asset_description',
+              'ptr_link',
+              'date_x',
+              'date_y',
+              'district',
+              'current_price']
+  s_cleanup:
+    save_path: data/clean/clean.csv
+
+  download_s3:
+      rt:
+        sep: ','
+        local_path: data/s3_downloads/recent_transactions.csv
+      sw:
+        sep: ','
+        local_path: data/s3_downloads/stockwatcher.csv
+      cp: 
+        sep: ','
+        local_path: data/s3_downloads/current_price.csv 
+      tp:
+        sep: ','
+        local_path: data/s3_downloads/transact_price.csv 
 
 train:
   local_path: data/clean/clean.csv
@@ -51,16 +82,3 @@ train:
     penalty: 'l2'
     tol: 1e-4
 
-clean:
-  clean:
-    local_path: 
-    save_path: 
-    columns:
-      - 
-      - 
-    response: 
-    threshold: 
-    null_vals:
-      - 
-      - 
-    other: 

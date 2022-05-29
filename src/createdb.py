@@ -46,13 +46,13 @@ def create_db():
 
     try:
         Base.metadata.create_all(engine)
-        logger.info("Database created from %s", SQLALCHEMY_DATABASE_URI)
+        logger.info("Table created from URI: %s", SQLALCHEMY_DATABASE_URI)
     except sql.exc.OperationalError:
         logger.error('Unable to create database')
         logger.warning('Please connect to Northwestern VPN or campus WiFi,\
                         or remove MY_SQL env variable for local location')
     else:
-        logger.info('Recent Transaction Database created successfully.')
+        logger.info('Recent Transaction table created successfully.')
 
 # Push the locally stored data to RDS or SQLite
 def add_df(local_path):
@@ -69,7 +69,7 @@ def add_df(local_path):
     dataframe = pd.read_csv(local_path)
     try:
         dataframe.to_sql('transaction', engine, if_exists='replace', index=False)
-        logger.info('Response data added to database')
+        logger.info('Recent transaction data added to "transaction" table')
     except sql.exc.OperationalError as error_name:
         logger.debug('Make sure you are connected to the VPN')
         logger.error("Error with sql functionality: %s", str(error_name))

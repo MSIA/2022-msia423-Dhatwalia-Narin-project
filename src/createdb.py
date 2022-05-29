@@ -14,6 +14,7 @@ logger = logging.getLogger(__name__)
 
 Base = declarative_base()
 
+# Define the schema for a table that contains recent transactions
 class Transaction(Base):
     """Create a table to be set up for capturing recent transactions
     """
@@ -31,9 +32,10 @@ class Transaction(Base):
     def __repr__(self):
         return f"<Transaction {self.id}>"
 
+# Create the table with correct schema in RDS or SQLite
 def create_db():
     '''Create the database and tables either locally or in AWS RDS'''
-    if os.environ.get('MYSQL_HOST') is None:
+    if os.environ.get('SQLALCHEMY_DATABASE_URI') is None:
         logger.info('Database location: Local')
         logger.debug('Set MYSQL_HOST variable for AWS RDS instead of local')
     else:
@@ -52,10 +54,10 @@ def create_db():
     else:
         logger.info('Recent Transaction Database created successfully.')
 
+# Push the locally stored data to RDS or SQLite
 def add_df(local_path):
     '''Adds clean dataframe to database either locally or in AWS RDS'''
-    if os.environ.get('MYSQL_HOST') is None and\
-       os.environ.get('SQLALCHEMY_DATABASE_URI') is None:
+    if os.environ.get('SQLALCHEMY_DATABASE_URI') is None:
         logger.info('Database location: Local')
         logger.debug('Set MYSQL_HOST variable for AWS RDS instead of local')
     else:
@@ -64,16 +66,17 @@ def add_df(local_path):
     # set up mysql connection
     engine = sql.create_engine(SQLALCHEMY_DATABASE_URI)
 
-    df = pd.read_csv(local_path)
+    dataframe = pd.read_csv(local_path)
     try:
-        df.to_sql('transaction', engine, if_exists='replace', index=False)
+        dataframe.to_sql('transaction', engine, if_exists='replace', index=False)
         logger.info('Response data added to database')
     except sql.exc.OperationalError as error_name:
         logger.debug('Make sure you are connected to the VPN')
-        logger.error("Error with sql functionality: " + str(error_name))
-    except:
-        logger.error("Uncaught error adding response data to database")
+        logger.error("Error with sql functionality: %s", str(error_name))
+    except Exception as error:
+        logger.error("Uncaught error adding response data to database: %s", str(error))
 
+# Needed to connect via Flask
 class ResponseManager:
     '''Class that aids in connecting to database for vaccine response'''
 

@@ -45,8 +45,8 @@ def train(local_path,
         logger.error("File %s not found at ", local_path)
         logger.debug("Check path in the configuration file")
 
-    enc = OneHotEncoder().fit(data[categ])  # fit to categorical vars
-    dummy_categ = enc.transform(data[categ])
+    enc = OneHotEncoder().fit(data[categ].values)  # fit to categorical vars
+    dummy_categ = enc.transform(data[categ].values)
     dummy_categ = pd.DataFrame(dummy_categ.toarray())
 
     # concatenate categorical features and numeric features
@@ -156,6 +156,5 @@ def predict_ind(model, encoder, cat_inputs, trans_price):
     '''
     test_new = transform(encoder, cat_inputs, trans_price)
     prediction = model.predict_proba(test_new)
-    #prediction = prediction[1]
     prediction = round(float(prediction[0][1]), 3)
     return prediction

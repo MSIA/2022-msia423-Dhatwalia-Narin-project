@@ -4,9 +4,6 @@ This is the calling script that leverages modules in the src folder
 
 import logging.config
 import argparse
-import os
-
-
 import yaml
 
 from src.createdb import (create_db,
@@ -19,9 +16,7 @@ from src.clean    import (clean_stockwatcher,
                           join_transact_price,
                           add_response,
                           filter_df,
-                          #get_dummies,
                           drop_dups,
-                          string_cleanup,
                           impute_missing)
 from src.train    import (train)
 
@@ -61,7 +56,6 @@ sb_train = subparsers.add_parser('train',
 args = parser.parse_args()
 sp_used = args.subparser_name
 
-
 if __name__ == '__main__':
     with open(args.config, "r", encoding='utf8') as f:
         y_conf = yaml.load(f, Loader=yaml.FullLoader)
@@ -94,11 +88,11 @@ if __name__ == '__main__':
         data = join_current_price(data, **y_conf['clean']['current'])
         data = add_response(data)
         data = filter_df(data, **y_conf['clean']['filter'])
-        #data = get_dummies(data)
         data = drop_dups(data)
-        data = impute_missing(data)
-        string_cleanup(data, **y_conf['clean']['s_cleanup'])
+        impute_missing(data, **y_conf['clean']['impute_missing'])
+
     elif sp_used == 'train':
         train(y_conf['train']['local_path'], **y_conf['train']['train'])
+
     else:
         parser.print_help()

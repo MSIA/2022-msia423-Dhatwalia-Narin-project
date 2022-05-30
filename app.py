@@ -50,27 +50,15 @@ def home():
             cat_vars = [owner, ticker, type_trans, amount, representative]
             trans_price = float(request.form["trans_price"])
             prediction = predict_ind(model, enc, cat_vars, trans_price)
-            
-            #top3 = np.argsort(prediction)[::-1]  # Gets indices sorted array descending
-            #top3 = top3[:3]  # Gets top 3 highest probabilities indexes
-            #top3_probs = [np.round(prediction[i], 2) for i in top3]  # Gets top 3 highest probabilities
-            #url_for_post = url_for('response_page', class1=top3[0], class2=top3[1],
-            #                       class3=top3[2], prob1=top3_probs[0],
-            #                       prob2=top3_probs[1], prob3=top3_probs[2])
-
             url_for_post = url_for('response_page', class1 = str(representative), prob1=prediction)
-            #url_for_post = url_for('response_page', class1 = 'Hon. Donald Sternoff Beyer', prob1=prediction)
             logger.info("Prediction submitted from form")
             return redirect(url_for_post)
         except Exception as error:
             logger.error("Error page returned with error: %s", error)
             return render_template('error.html')
 
-#@app.route("/response.html/<class1>/<class2>/<class3>/<prob1>/<prob2>/<prob3>",
-#           methods=['GET', 'POST'])
 @app.route("/response.html/<class1>/<prob1>",
             methods=['GET', 'POST'])
-#def response_page(class1, prob1):
 def response_page(class1, prob1):
     '''Page that displays model predictions and sql table with additional info
     Args:
@@ -83,13 +71,9 @@ def response_page(class1, prob1):
         try:
             response = response_manager.session.query(Transaction)\
                                        .filter(Transaction.representative.in_([str(class1)]))
-
-            #response = response_manager.session.query(Transaction).filter_by(representative="Hon. Donald Sternoff Beyer")
             probs = [prob1]
             logger.info("Response page requested")
-            #return render_template('response.html', responses=response,
-            #                      probabilities=probs)
-            return render_template('response.html', responses = response ,probabilities=probs)   
+            return render_template('response.html', responses = response ,probabilities=probs)
         except Exception as error:
             logger.error("Error getting page: %s", error)
             logger.debug("Make sure to fill entire form")
@@ -98,7 +82,6 @@ def response_page(class1, prob1):
     if request.method == "POST":
         url_for_post = url_for('home/')
         return redirect(url_for_post)
-
 
 if __name__ == '__main__':
     app.run(debug=app.config["DEBUG"], port=app.config["PORT"], host=app.config["HOST"])

@@ -3,7 +3,6 @@ model:
   encoder_path: models/encoder.pkl
 
 acquire:
-  
   get_file:
     recent_transactions:
       url: https://filebin.net/tniv4fxc1k45dyrv/recent_transactions.csv
@@ -45,8 +44,11 @@ clean:
               'date_y',
               'district',
               'current_price']
-  s_cleanup:
+  impute_missing:
     save_path: data/clean/clean.csv
+    column: 'owner'
+    replacement: 'undisclosed'
+    missing_val: '--'
 
   download_s3:
       rt:

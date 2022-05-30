@@ -19,9 +19,11 @@ from src.clean    import (clean_stockwatcher,
                           join_transact_price,
                           add_response,
                           filter_df,
-                          get_dummies,
+                          #get_dummies,
                           drop_dups,
-                          string_cleanup)
+                          string_cleanup,
+                          impute_missing)
+from src.train    import (train)
 
 logging.config.fileConfig('config/logging/local.conf')
 
@@ -92,9 +94,11 @@ if __name__ == '__main__':
         data = join_current_price(data, **y_conf['clean']['current'])
         data = add_response(data)
         data = filter_df(data, **y_conf['clean']['filter'])
-        data = get_dummies(data)
+        #data = get_dummies(data)
         data = drop_dups(data)
+        data = impute_missing(data)
         string_cleanup(data, **y_conf['clean']['s_cleanup'])
-
+    elif sp_used == 'train':
+        train(y_conf['train']['local_path'], **y_conf['train']['train'])
     else:
         parser.print_help()

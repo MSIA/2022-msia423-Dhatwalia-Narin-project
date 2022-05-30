@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="static/basic.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='basic.css')}}" rel="stylesheet">
 </head>
 
 <body>
     <h3>
-         <a href = "{{ url_for('index') }}">Penny Lane Music Recommender</a>
+         <a href = "{{ url_for('home') }}">Mid-Pandemic App</a>
     </h3>
 
     <div class="alert alert-danger" role="alert">
-  <p class="alert-link">We're sorry. There was a problem accessing the database. Please try back later. </p>
+  <p class="alert-link">We're sorry. There was a problem. Please try again. </p>
+  <p>Make sure to fill the form completely before submitting.</p>
     </div>
 
 </body>

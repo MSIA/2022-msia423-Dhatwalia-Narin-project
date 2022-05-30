@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="{{ url_for('static', filename='basic.css')}}" rel="stylesheet">
+<link rel="shortcut icon" href="static/icon.ico">
+</head>
+
+<body>
+    <div class="r_title">
+      <h1>Why They Won't Get the Vaccine</h1>
+      <h3>Top 3 Likely Feelings Toward the Vaccine</h3>
+    </div>
+    <div class="response">
+      <h3>Reason</h3>
+      {% for response in responses %}
+          <h4>{{ response.reason }}</h4>
+      {% endfor %}
+    </div>
+    <div class="percentage">
+      <h3>Likelihood (%)</h3>
+      {% for prob in probabilities %}
+          <h4>{{ prob }}</h4>
+      {% endfor %}
+    </div>
+    <div class="break">
+      <h2>Hints and sources to aid in conversation</h2>
+    </div>
+    <table>
+         <thead>
+            <tr>
+               <th>Reason</th>
+               <th>Response Tips</th>
+               <th>Useful Sources</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for response in responses %}
+               <tr>
+                   <td>{{ response.reason }}</td>
+                   <td>{{ response.response }}</td>
+                   <td><a href={{ response.url }}>Source</a></td>
+               </tr>
+            {% endfor %}
+         </tbody>
+    </table>
+    <br>
+    <a href="/" class="button">Home</a>
+</body>
+</html>

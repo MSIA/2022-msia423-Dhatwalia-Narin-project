@@ -64,21 +64,17 @@ clean:
 
 train:
   local_path: data/clean/clean.csv
-  sep: ','
   train:
-    category_cols:
-      - 
-      - 
-    response_cols:
-      - 
-      - 
-    year_col:
-      - 
+    categ: ['owner',
+            'ticker',
+            'type',
+            'amount',
+            'representative']
+    response: 'response'
     results_path: models/model_results.yaml
     model_path: models/model.pkl
     encoder_path: models/encoder.pkl
-    test_size: 0.15
-    random_state: 42
-    penalty: 'l2'
-    tol: 1e-4
+    test_size: 0.10
+    random_state: 29
+    max_iter: 5000
 

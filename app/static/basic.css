@@ -1,8 +1,50 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,600);
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Bungee&family=Days+One&family=Emblema+One&family=Fascinate&family=Julius+Sans+One&family=Molle:ital@1&family=Montserrat+Alternates&family=Nova+Round&family=Poller+One&display=swap');
 
 body {
   height: 100%;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Open Sans', sans-serif;
-  background-color:#cdced8;
+  font-family: Montserrat Alternates;
+  background-color:#e2f0fb;
+}
+.percentage {
+  display: inline-block;
+  text-align: right;
+  padding-left: 5%;
+}
+.response {
+  display: inline-block;
+  width: 45%;
+  vertical-align: top;
+}
+h1 {
+  font-family: Julius Sans One
+}
+.break{
+  width:105%;
+  height: 25%;
+  background-color:#7EB9E6;
+  margin-left:-10px;
+  display: inline-block;
+  text-align: center;
+  color: white;
+}
+.button {
+  background-color: #4CAF50; 
+  color: #4D5D69;
+  padding: 5px;
+  font-family: Montserrat Alternates;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+.r_title{
+  width:105%;
+  height: 25%;
+  background-color:#7EB9E6;
+  margin-left:-10px;
+  display: inline-block;
+  text-align: center;
+  color: white;
 }

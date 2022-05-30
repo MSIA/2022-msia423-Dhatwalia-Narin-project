@@ -3,41 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <link href="static/basic.css" rel="stylesheet">
+    <link rel="shortcut icon" href="static/icon.ico">
 </head>
 
 <body>
-    <h3>
-         <a href = "{{ url_for('index') }}">Penny Lane Music Recommender</a>
-    </h3>
-
-    <hr/>
-    <table>
-         <thead>
-            <tr>
-               <th>Title</th>
-               <th>Artist</th>
-               <th>Album</th>
-            </tr>
-         </thead>
-
-         <tbody>
-            {% for track in tracks %}
-               <tr>
-                   <td>{{ track.title }}</td>
-                   <td>{{ track.artist }}</td>
-                   <td>{{ track.album }}</td>
-               </tr>
-            {% endfor %}
-         </tbody>
-      </table>
-      <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
-      <dl>
-        <input type=text size=15 name=title placeholder="Title">
-        <input type=text size=15 name=artist placeholder="Artist">
-        <input type=text size=15 name=album placeholder="Album">
-        <input type=submit value=Add>
-      </dl>
+  <div class="title">
+    <h1>
+      Mid-Pandemic Water Cooler Conversations
+    </h1>
+    <p>by: Matt Ko</p>
+    <p>
+       In a satirical manner, this app's goal is to help users quickly gauge why
+       an acquaintance at work or school might not want to get the vaccine so
+       they can accommodate conversation topics naturally that may address these
+       concerns. Water cooler conversations can now be productive in helping end
+       this pandemic by naturally persuading people to get the vaccine and save lives.
+    </p>
+  </div>
+  <div class="break">
+    <h2>find out which conversation to prepare for</h2>
+  </div>
+  <div class="app">
+    <form action="{{ url_for('home') }}" method=post class=form>
+      <h5>What gender do they most closely align to?</h5>
+      <input type="radio" name="gender" id="man" value="1">
+      <label for="male">Man</label>
+      <input type="radio" name="gender" id="woman" value="2">
+      <label for="female">Woman</label>
+      <br>
+      <h5>What is this person's race?</h5>
+      <input type="radio" name="race" id="asian" value="3">
+      <label for="asian">Asian, alone</label>
+      <input type="radio" name="race" id="black" value="2">
+      <label for="black">Black, alone</label>
+      <input type="radio" name="race" id="white" value="1">
+      <label for="white">White, alone</label>
+      <input type="radio" name="race" id="other" value="2">
+      <label for="other">Other, or combination</label>
+      <br>
+      <h5>What level of education does this person have?</h5>
+      <input type="radio" name="education" id="one" value="1">
+      <label for="one">Less than High School</label>
+      <input type="radio" name="education" id="two" value="2">
+      <label for="two">Some high school</label>
+      <input type="radio" name="education" id="three" value="3">
+      <label for="three">High school or equivalent (GED)</label>
+      <input type="radio" name="education" id="four" value="4">
+      <label for="four">Some college</label>
+      <input type="radio" name="education" id="five" value="5">
+      <label for="five">Associate's degree</label>
+      <input type="radio" name="education" id="six" value="6">
+      <label for="other">Bachelor's degree</label>
+      <input type="radio" name="education" id="seven" value="7">
+      <label for="seven">Graduate, professional, doctorate</label>
+      <br>
+      <h5>What is this person's marital status?</h5>
+      <input type="radio" name="ms" id="one" value="1">
+      <label for="one">Now married</label>
+      <input type="radio" name="ms" id="two" value="2">
+      <label for="two">Widowed</label>
+      <input type="radio" name="ms" id="three" value="3">
+      <label for="three">Divorced</label>
+      <input type="radio" name="ms" id="four" value="4">
+      <label for="four">Separated</label>
+      <input type="radio" name="ms" id="five" value="5">
+      <label for="five">Never married</label>
+      <input type="radio" name="ms" id="six" value="0">
+      <label for="six">Don't know</label>
+      <br>
+      <h5>What type of employment does this person currently have?</h5>
+      <input type="radio" name="work" id="one" value="1">
+      <label for="one">Government</label>
+      <input type="radio" name="work" id="two" value="2">
+      <label for="two">Private Company</label>
+      <input type="radio" name="work" id="three" value="3">
+      <label for="three">Non-profit</label>
+      <input type="radio" name="work" id="four" value="4">
+      <label for="four">Self-employed</label>
+      <input type="radio" name="work" id="five" value="5">
+      <label for="five">Family business</label>
+      <input type="radio" name="work" id="six" value="0">
+      <label for="six">Don't know</label>
+      <br>
+      <h5>Where is this person located in the U.S.?</h5>
+      <input type="radio" name="region" id="one" value="1">
+      <label for="one">Northeast</label>
+      <input type="radio" name="region" id="two" value="2">
+      <label for="two">South</label>
+      <input type="radio" name="region" id="three" value="3">
+      <label for="three">Midwest</label>
+      <input type="radio" name="region" id="four" value="4">
+      <label for="four">West</label>
+      <br>
+      <h5>What year do you think they were born?</h5>
+      <input type="text" name="year" value="">
+      <br>
+      <br>
+      <input type=submit value=Calculate class="button">
     </form>
-
+  </div>
 </body>
 </html>

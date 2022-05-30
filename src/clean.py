@@ -117,6 +117,74 @@ def get_dummies(data, drop_first = True):
     return new_df
 
 # Function 7
+def string_cleanup(new_df, save_path, col_names = False):
+    """
+    Insert docstring here
+    """
+    if col_names:
+        new_df.columns = new_df.columns.str.replace("representative_Hon. ", "", regex=False)
+        new_df.columns = new_df.columns.str.replace("representative_Mr. ", "",regex=False)
+
+        new_df.columns = new_df.columns.str.replace("$1,001 - $15,000", "2",regex=False)
+        new_df.columns = new_df.columns.str.replace("$1,001 -", "1",regex=False)
+        new_df.columns = new_df.columns.str.replace("$100,001 - $250,000", "3",regex=False)
+        new_df.columns = new_df.columns.str.replace("$15,001 - $50,000", "4",regex=False)
+        new_df.columns = new_df.columns.str.replace("$250,001 - $500,000", "5",regex=False)
+        new_df.columns = new_df.columns.str.replace("$5,000,001 - $25,000,000", "6",regex=False)
+        new_df.columns = new_df.columns.str.replace("$50,001 - $100,000", "7",regex=False)
+        new_df.columns = new_df.columns.str.replace("$500,001 - $1,000,000", "8",regex=False)
+
+        new_df.columns = new_df.columns.str.replace(".", "",regex=False)
+        new_df.columns = new_df.columns.str.replace(" ", "_",regex=False)
+
+        new_df.to_csv(save_path, index = False)
+    else:
+        new_df['representative'] = new_df['representative'].str.replace("representative_Hon. ",
+                                                                        "",
+                                                                        regex=False)
+
+        new_df['representative'] = new_df['representative'].str.replace("representative_Mr. ",
+                                                                        "",
+                                                                        regex=False)
+
+        new_df['representative'] = new_df['representative'].str.replace("$1,001 - $15,000",
+                                                                        "2",
+                                                                        regex=False)
+
+        new_df['representative'] = new_df['representative'].str.replace("$1,001 -",
+                                                                        "1",
+                                                                        regex=False)
+
+        new_df['representative'] = new_df['representative'].str.replace("$100,001 - $250,000",
+                                                                        "3",
+                                                                        regex=False)
+
+        new_df['representative'] = new_df['representative'].str.replace("$15,001 - $50,000",
+                                                                        "4",
+                                                                        regex=False)
+
+        new_df['representative'] = new_df['representative'].str.replace("$250,001 - $500,000",
+                                                                        "5",
+                                                                        regex=False)
+
+        new_df['representative'] = new_df['representative'].str.replace("$5,000,001 - $25,000,000",
+                                                                        "6",
+                                                                        regex=False)
+
+        new_df['representative'] = new_df['representative'].str.replace("$50,001 - $100,000",
+                                                                        "7",
+                                                                        regex=False)
+
+        new_df['representative'] = new_df['representative'].str.replace("$500,001 - $1,000,000",
+                                                                        "8",
+                                                                        regex=False)
+
+        new_df['representative'] = new_df['representative'].str.replace(".", "",regex=False)
+        new_df['representative'] = new_df['representative'].str.replace(" ", "_",regex=False)
+
+        new_df.to_csv(save_path, index = False)
+
+# Function 8
 def drop_dups(data):
     """
     Insert docstring here
@@ -124,24 +192,12 @@ def drop_dups(data):
     new_df = data.drop_duplicates()
     return new_df
 
-# Function 8
-def string_cleanup(new_df, save_path):
+# Function 9
+def impute_missing(data, column = 'owner', replacement = 'undisclosed'):
     """
-    Insert docstring here
+    Add docstring here
     """
-    new_df.columns = new_df.columns.str.replace("representative_Hon. ", "", regex=False)
-    new_df.columns = new_df.columns.str.replace("representative_Mr. ", "",regex=False)
 
-    new_df.columns = new_df.columns.str.replace("$1,001 - $15,000", "2",regex=False)
-    new_df.columns = new_df.columns.str.replace("$1,001 -", "1",regex=False)
-    new_df.columns = new_df.columns.str.replace("$100,001 - $250,000", "3",regex=False)
-    new_df.columns = new_df.columns.str.replace("$15,001 - $50,000", "4",regex=False)
-    new_df.columns = new_df.columns.str.replace("$250,001 - $500,000", "5",regex=False)
-    new_df.columns = new_df.columns.str.replace("$5,000,001 - $25,000,000", "6",regex=False)
-    new_df.columns = new_df.columns.str.replace("$50,001 - $100,000", "7",regex=False)
-    new_df.columns = new_df.columns.str.replace("$500,001 - $1,000,000", "8",regex=False)
+    data[column] = data[column].fillna(replacement)
 
-    new_df.columns = new_df.columns.str.replace(".", "",regex=False)
-    new_df.columns = new_df.columns.str.replace(" ", "_",regex=False)
-
-    new_df.to_csv(save_path, index = False)
+    return data

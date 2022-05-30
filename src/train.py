@@ -84,8 +84,8 @@ def train_evaluate(features, response, results_path, test_size, random_state,
     model = LogisticRegression(max_iter=max_iter,
                                random_state=random_state)
     logger.debug("Model training")
-    ovr = model.fit(x_train, y_train)
-    ypred_bin_test = ovr.predict(x_test)
+    ovr = model.fit(x_train.values, y_train)
+    ypred_bin_test = ovr.predict(x_test.values)
     ypred_proba_test = ovr.predict_proba(x_test)
 
     auc = roc_auc_score(y_test, ypred_bin_test)
@@ -147,7 +147,7 @@ def transform(encoder, cat_inputs, trans_price):
 def predict_ind(model, encoder, cat_inputs, trans_price):
     '''Predicts the probabilities for a new model
     Args:
-        model (sklearn.multiclass.OneVsRestClassifier): multilabel random forest model
+        model (sklearn.multiclass.OneVsRestClassifier): binary logistic regression model
         encoder (sklearn.preprocessing._encoders.OneHotEncoder): encoder for categorical variables
         cat_inputs (list): categorical inputs of individual
         trans_price (float): birth year for individual
@@ -156,6 +156,6 @@ def predict_ind(model, encoder, cat_inputs, trans_price):
     '''
     test_new = transform(encoder, cat_inputs, trans_price)
     prediction = model.predict_proba(test_new)
-    prediction = prediction[1]
-
+    #prediction = prediction[1]
+    prediction = prediction[0][1]
     return prediction

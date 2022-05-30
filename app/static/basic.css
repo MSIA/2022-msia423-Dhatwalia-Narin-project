@@ -4,8 +4,8 @@
 body {
   height: 100%;
   -webkit-font-smoothing: antialiased;
-  font-family: Montserrat Alternates;
-  background-color:#e2f0fb;
+  font-family: "Times New Roman", Times, serif;
+  background-color:#ede8ee91;
 }
 .percentage {
   display: inline-block;
@@ -18,22 +18,29 @@ body {
   vertical-align: top;
 }
 h1 {
-  font-family: Julius Sans One
+  font-size: 70px;
+  font-weight: 600;
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 .break{
-  width:105%;
-  height: 25%;
-  background-color:#7EB9E6;
-  margin-left:-10px;
-  display: inline-block;
+  width:90%;
+  height: 55%;
+  background-color:#e5cff7;
+  margin-left:60px;
+  display: block;
   text-align: center;
-  color: white;
+  color: rgba(32, 23, 23, 0.658);
+  font-size: 20px;
+  font-weight: 400;
 }
 .button {
   background-color: #4CAF50; 
   color: #4D5D69;
   padding: 5px;
-  font-family: Montserrat Alternates;
+  font-family: "Times New Roman", Times, serif;
   text-align: center;
   text-decoration: none;
   display: inline-block;

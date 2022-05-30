@@ -139,6 +139,7 @@ def string_cleanup(new_df, save_path, col_names = False):
 
         new_df.to_csv(save_path, index = False)
     else:
+        '''
         new_df['representative'] = new_df['representative'].str.replace("representative_Hon. ",
                                                                         "",
                                                                         regex=False)
@@ -181,7 +182,7 @@ def string_cleanup(new_df, save_path, col_names = False):
 
         new_df['representative'] = new_df['representative'].str.replace(".", "",regex=False)
         new_df['representative'] = new_df['representative'].str.replace(" ", "_",regex=False)
-
+        '''
         new_df.to_csv(save_path, index = False)
 
 # Function 8

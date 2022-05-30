@@ -157,5 +157,5 @@ def predict_ind(model, encoder, cat_inputs, trans_price):
     test_new = transform(encoder, cat_inputs, trans_price)
     prediction = model.predict_proba(test_new)
     #prediction = prediction[1]
-    prediction = prediction[0][1]
+    prediction = round(float(prediction[0][1]), 3)
     return prediction

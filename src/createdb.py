@@ -24,7 +24,7 @@ class Transaction(Base):
 
     __tablename__ = "transaction"
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True,autoincrement=True)
     representative = Column(String(200), unique=False, nullable=False)
     transaction_date = Column(String(200), unique=False, nullable=False)
     ticker = Column(String(200), unique=False, nullable=False)
@@ -70,6 +70,8 @@ def add_df(local_path):
     engine = sql.create_engine(SQLALCHEMY_DATABASE_URI)
 
     dataframe = pd.read_csv(local_path)
+    dataframe = dataframe.reset_index()
+    dataframe = dataframe.rename(columns={'index':'id'})
     try:
         dataframe.to_sql('transaction', engine, if_exists='replace', index=False)
         logger.info('Recent transaction data added to "transaction" table')

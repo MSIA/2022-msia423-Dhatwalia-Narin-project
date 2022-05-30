@@ -2,10 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Alata&family=Bungee&family=Days+One&family=Emblema+One&family=Fascinate&family=Julius+Sans+One&family=Molle:ital@1&family=Montserrat+Alternates&family=Nova+Round&family=Poller+One&display=swap');
 
 body {
-  height: 100%;
-  -webkit-font-smoothing: antialiased;
+  font-size: 18px;
+  font-weight: 100;
+  color: rgba(32, 23, 23, 0.658);
+  background-color: #ede8ee91;
   font-family: "Times New Roman", Times, serif;
-  background-color:#ede8ee91;
+  align-items: center;
 }
 .percentage {
   display: inline-block;
@@ -25,6 +27,23 @@ h1 {
   background-clip: text;
   -webkit-background-clip: text;
 }
+h2 {
+  font-size: 70px;
+  font-weight: 600;
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+h4 {
+  font-size: 20px;
+  font-weight: 120;
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  align-items: left;
+}
 .break{
   width:90%;
   height: 55%;
@@ -37,14 +56,15 @@ h1 {
   font-weight: 400;
 }
 .button {
-  background-color: #a741fa; 
-  color: #feffff;
-  padding: 9px;
+  background-color: #f8f8f8; 
+  color: #ffffff;
+  padding: 5px;
   font-family: "Times New Roman", Times, serif;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 15px;
+  font-size: 12px;
+  text-emphasis-color: black;
 }
 .r_title{
   width:105%;
@@ -54,4 +74,12 @@ h1 {
   display: inline-block;
   text-align: center;
   color: white;
+}
+table, th, td {
+  border: 1px solid;
+  align-items: center;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
 }

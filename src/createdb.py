@@ -1,7 +1,6 @@
 """
 This module writes data to RDS or local SQLite database
 """
-from enum import unique
 import logging.config
 import os
 from sqlalchemy.orm import sessionmaker
@@ -11,7 +10,6 @@ import sqlalchemy as sql
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
 from config.flaskconfig import SQLALCHEMY_DATABASE_URI
-
 
 logger = logging.getLogger(__name__)
 

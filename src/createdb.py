@@ -76,8 +76,6 @@ def add_df(local_path):
     except sql.exc.OperationalError as error_name:
         logger.debug('Make sure you are connected to the VPN')
         logger.error("Error with sql functionality: %s", str(error_name))
-    except Exception as error:
-        logger.error("Uncaught error adding response data to database: %s", str(error))
 
 # Needed to connect via Flask
 class ResponseManager:
@@ -93,11 +91,11 @@ class ResponseManager:
             None
         '''
         if app:
-            self.db = SQLAlchemy(app)
-            self.session = self.db.session
+            self.database = SQLAlchemy(app)
+            self.session = self.database.session
         elif engine_string:
             engine = sql.create_engine(engine_string)
-            Session = sessionmaker(bind=engine)
-            self.session = Session()
+            session = sessionmaker(bind=engine)
+            self.session = session()
         else:
             raise ValueError("Need either an engine string or a Flask app to initialize")

@@ -5,16 +5,16 @@ model:
 acquire:
   get_file:
     recent_transactions:
-      url: https://filebin.net/tniv4fxc1k45dyrv/recent_transactions.csv
+      url: https://filebin.net/a2tlh23pbiihlnog/recent_transactions.csv
       file_name: data/external/recent_transactions.csv
     stockwatcher:
-      url: https://filebin.net/tniv4fxc1k45dyrv/house_stock_watcher_api_data.csv
+      url: https://filebin.net/a2tlh23pbiihlnog/house_stock_watcher_api_data.csv
       file_name: data/external/stockwatcher.csv
     current_price: 
-      url: https://filebin.net/tniv4fxc1k45dyrv/yahoo_api_current_price.csv
+      url: https://filebin.net/a2tlh23pbiihlnog/yahoo_api_current_price.csv
       file_name: data/external/current_price.csv 
     transact_price:
-      url: https://filebin.net/tniv4fxc1k45dyrv/yahoo_api_transaction_price.csv
+      url: https://filebin.net/a2tlh23pbiihlnog/yahoo_api_transaction_price.csv
       file_name: data/external/transact_price.csv   
   
   upload_s3:

@@ -143,11 +143,11 @@ def get_model(model_path, encoder_path, scaler_path):
         with open(scaler_path, "rb") as input_file:
             scaler = pickle.load(input_file)
     except FileNotFoundError:
-        logger.error("File %s not found at ", encoder_path)
+        logger.error("File %s not found at ", scaler_path)
         logger.debug("Check path in the configuration file")
     except Exception as error:
         logger.error("General error reading file: %s", error)
-        logger.debug("Check file location for: %s", encoder_path)
+        logger.debug("Check file location for: %s", scaler_path)
     return model, enc, scaler
 
 def transform(encoder, scaler, cat_inputs, trans_price):
@@ -168,7 +168,7 @@ def transform(encoder, scaler, cat_inputs, trans_price):
 def predict_ind(model, encoder, scaler, cat_inputs, trans_price):
     '''Predicts the probabilities for a new model
     Args:
-        model (sklearn.multiclass.OneVsRestClassifier): binary logistic regression model
+        model: binary logistic regression model
         encoder (sklearn.preprocessing._encoders.OneHotEncoder): encoder for categorical variables
         cat_inputs (list): categorical inputs of individual
         trans_price (float): birth year for individual

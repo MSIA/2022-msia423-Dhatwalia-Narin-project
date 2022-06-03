@@ -13,6 +13,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score
 from sklearn.metrics import log_loss
 from sklearn.metrics import classification_report
+from sklearn.preprocessing import StandardScaler
 
 logger = logging.getLogger(__name__)
 
@@ -22,6 +23,7 @@ def train(local_path,
           results_path,
           model_path,
           encoder_path,
+          scaler_path,
           test_size,
           random_state,
           max_iter):
@@ -44,24 +46,23 @@ def train(local_path,
     except FileNotFoundError:
         logger.error("File %s not found at ", local_path)
         logger.debug("Check path in the configuration file")
-
-    enc = OneHotEncoder().fit(data[categ].values)  # fit to categorical vars
-    dummy_categ = enc.transform(data[categ].values)
+    enc = OneHotEncoder().fit(data[categ])
+    dummy_categ = enc.transform(data[categ])
     dummy_categ = pd.DataFrame(dummy_categ.toarray())
-
-    # concatenate categorical features and numeric features
     features = pd.concat([dummy_categ, data.drop(categ+[response], axis=1)], axis=1)
-    features.columns = [str(i) for i in features.columns]
-
-    #response = np.array(data[response])
+    features.columns = enc.get_feature_names_out().tolist() +\
+                         data.drop(categ+[response], axis=1).columns.to_list()
     response = data[response].values.ravel()
 
-    model = train_evaluate(features, response, results_path, test_size,
+    model, scaler = train_evaluate(features, response, results_path, test_size,
                            random_state, max_iter)
+
     pickle.dump(model, open(model_path, 'wb'))
     logger.info("Model saved to: %s", model_path)
     pickle.dump(enc, open(encoder_path, 'wb'))
     logger.info("OneHotEncoder saved to: %s", encoder_path)
+    pickle.dump(scaler, open(scaler_path, 'wb'))
+    logger.info("StandardScaler saved to: %s", scaler_path)
 
 def train_evaluate(features, response, results_path, test_size, random_state,
                    max_iter):
@@ -84,23 +85,34 @@ def train_evaluate(features, response, results_path, test_size, random_state,
     model = LogisticRegression(max_iter=max_iter,
                                random_state=random_state)
     logger.debug("Model training")
-    ovr = model.fit(x_train.values, y_train)
-    ypred_bin_test = ovr.predict(x_test.values)
+    scaler = StandardScaler()
+    scaled_x_train = scaler.fit_transform(x_train)
+    scaled_x_test  = scaler.transform(x_test)
+
+    x_train = pd.DataFrame(scaled_x_train, index=x_train.index, columns=x_train.columns)
+    x_test = pd.DataFrame(scaled_x_test, index=x_test.index, columns=x_test.columns)
+
+    ovr = model.fit(x_train, y_train)
+    ypred_bin_test = ovr.predict(x_test)
     ypred_proba_test = ovr.predict_proba(x_test)
 
     auc = roc_auc_score(y_test, ypred_bin_test)
     loss = log_loss(y_test, ypred_proba_test)
+
     creport = classification_report(y_test, ypred_bin_test,
                                                     output_dict=True)
 
-    results = [creport, {"AUC": str(auc), "Log Loss": str(loss)}]
+    flat_list = [item for items in model.coef_.tolist() for item in items]
+    coeffs = dict(zip(x_train.columns.ravel(), flat_list))
+
+    results = [creport,{"AUC": str(auc), "Log Loss": str(loss),"Coefficients" : coeffs}]
+
     with open(results_path, 'w',encoding='utf8') as file:
         outdoc = yaml.dump(results, file)
     logger.info("Model results written to: %s", results_path)
+    return ovr, scaler
 
-    return ovr
-
-def get_model(model_path, encoder_path):
+def get_model(model_path, encoder_path, scaler_path):
     '''Opens pickled model and encoder for the data
     Args:
         model_path (str): path to pickled model
@@ -127,10 +139,18 @@ def get_model(model_path, encoder_path):
     except Exception as error:
         logger.error("General error reading file: %s", error)
         logger.debug("Check file location for: %s", encoder_path)
+    try:
+        with open(scaler_path, "rb") as input_file:
+            scaler = pickle.load(input_file)
+    except FileNotFoundError:
+        logger.error("File %s not found at ", encoder_path)
+        logger.debug("Check path in the configuration file")
+    except Exception as error:
+        logger.error("General error reading file: %s", error)
+        logger.debug("Check file location for: %s", encoder_path)
+    return model, enc, scaler
 
-    return model, enc
-
-def transform(encoder, cat_inputs, trans_price):
+def transform(encoder, scaler, cat_inputs, trans_price):
     '''Transforms raw input into encoded input for model use
     Args:
         encoder (sklearn.preprocessing._encoders.OneHotEncoder): encoder for categorical variables
@@ -142,9 +162,10 @@ def transform(encoder, cat_inputs, trans_price):
     test_new = encoder.transform([cat_inputs]).toarray()  # needs 2d array
     test_new = np.append(test_new[0], trans_price)  # encoder returns 2d array, need element inside
     test_new = [test_new]  # predict function expects 2d arrray
+    test_new = scaler.transform(test_new)
     return test_new
 
-def predict_ind(model, encoder, cat_inputs, trans_price):
+def predict_ind(model, encoder, scaler, cat_inputs, trans_price):
     '''Predicts the probabilities for a new model
     Args:
         model (sklearn.multiclass.OneVsRestClassifier): binary logistic regression model
@@ -154,7 +175,7 @@ def predict_ind(model, encoder, cat_inputs, trans_price):
     Returns:
         prediction (numpy.ndarray): probability of profitable investment
     '''
-    test_new = transform(encoder, cat_inputs, trans_price)
+    test_new = transform(encoder, scaler, cat_inputs, trans_price)
     prediction = model.predict_proba(test_new)
     prediction = round(float(prediction[0][1]), 3)
     return prediction

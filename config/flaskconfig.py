@@ -12,6 +12,7 @@ SQLALCHEMY_ECHO = False  # If true, SQL for queries made will be printed
 MAX_ROWS_SHOW = 100
 MODEL_PATH = './models/model.pkl'
 ENCODER_PATH = './models/encoder.pkl'
+SCALER_PATH = './models/scaler.pkl'
 
 # Connection string
 SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')

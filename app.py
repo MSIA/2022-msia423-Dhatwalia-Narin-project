@@ -19,7 +19,8 @@ logger = logging.getLogger(app.config["APP_NAME"])
 # Load model and encoder to make new predictions
 model_path = app.config["MODEL_PATH"]
 encoder_path = app.config["ENCODER_PATH"]
-model, enc = get_model(model_path, encoder_path)
+scaler_path = app.config["SCALER_PATH"]
+model, enc, scaler = get_model(model_path, encoder_path, scaler_path)
 
 # Manager to query data from sql table
 response_manager = ResponseManager(app)
@@ -49,7 +50,7 @@ def home():
             amount = str(request.form["amount"])
             cat_vars = [owner, ticker, type_trans, amount, representative]
             trans_price = float(request.form["trans_price"])
-            prediction = predict_ind(model, enc, cat_vars, trans_price)
+            prediction = predict_ind(model, enc, scaler, cat_vars, trans_price)
             url_for_post = url_for('response_page', class1 = str(representative), prob1=prediction)
             logger.info("Prediction submitted from form")
             return redirect(url_for_post)

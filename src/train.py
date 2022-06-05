@@ -14,6 +14,8 @@ from sklearn.metrics import roc_auc_score
 from sklearn.metrics import log_loss
 from sklearn.metrics import classification_report
 from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import ConfusionMatrixDisplay, RocCurveDisplay
+import matplotlib.pyplot as plt
 
 logger = logging.getLogger(__name__)
 
@@ -21,6 +23,8 @@ def train(local_path,
           categ,
           response,
           results_path,
+          matrix_path,
+          roc_path,
           model_path,
           encoder_path,
           scaler_path,
@@ -54,17 +58,29 @@ def train(local_path,
                          data.drop(categ+[response], axis=1).columns.to_list()
     response = data[response].values.ravel()
 
-    model, scaler = train_evaluate(features, response, results_path, test_size,
-                           random_state, max_iter)
+    model, scaler = train_evaluate(features, 
+                                   response,
+                                   results_path,
+                                   matrix_path,
+                                   roc_path,
+                                   test_size,
+                                   random_state,
+                                   max_iter)
 
-    pickle.dump(model, open(model_path, 'wb'))
+    pickle.dump(model, open(model_path, "wb"))
     logger.info("Model saved to: %s", model_path)
-    pickle.dump(enc, open(encoder_path, 'wb'))
+    pickle.dump(enc, open(encoder_path, "wb"))
     logger.info("OneHotEncoder saved to: %s", encoder_path)
-    pickle.dump(scaler, open(scaler_path, 'wb'))
+    pickle.dump(scaler, open(scaler_path, "wb"))
     logger.info("StandardScaler saved to: %s", scaler_path)
 
-def train_evaluate(features, response, results_path, test_size, random_state,
+def train_evaluate(features,
+                   response,
+                   results_path,
+                   matrix_path,
+                   roc_path,
+                   test_size,
+                   random_state,
                    max_iter):
     '''Function to split data, train model, and evaluate model
     Args:
@@ -96,19 +112,26 @@ def train_evaluate(features, response, results_path, test_size, random_state,
     ypred_bin_test = ovr.predict(x_test)
     ypred_proba_test = ovr.predict_proba(x_test)
 
-    auc = roc_auc_score(y_test, ypred_bin_test)
+    auc = roc_auc_score(y_test, ypred_proba_test[:, 1])
     loss = log_loss(y_test, ypred_proba_test)
 
     creport = classification_report(y_test, ypred_bin_test,
                                                     output_dict=True)
 
+    ConfusionMatrixDisplay.from_estimator(ovr, x_test, y_test)
+    plt.savefig(matrix_path)
+    logger.info("Confusion matrix saved to: %s", matrix_path)
+    RocCurveDisplay.from_estimator(ovr, x_test, y_test)
+    plt.savefig(roc_path)
+    logger.info("AUCROC curve saved to: %s", roc_path)
+
     flat_list = [item for items in model.coef_.tolist() for item in items]
-    coeffs = dict(zip(x_train.columns.ravel(), flat_list))
+    coeffs = dict(zip(x_train.columns.tolist(), flat_list))
 
     results = [creport,{"AUC": str(auc), "Log Loss": str(loss),"Coefficients" : coeffs}]
 
-    with open(results_path, 'w',encoding='utf8') as file:
-        outdoc = yaml.dump(results, file)
+    with open(results_path, "w",encoding="utf8") as file:
+        yaml.dump(results, file)
     logger.info("Model results written to: %s", results_path)
     return ovr, scaler
 
@@ -124,30 +147,17 @@ def get_model(model_path, encoder_path, scaler_path):
     try:
         with open(model_path, "rb") as input_file:
             model = pickle.load(input_file)
+
+        with open(encoder_path, "rb") as input_file:
+            enc = pickle.load(input_file)
+
+        with open(scaler_path, "rb") as input_file:
+            scaler = pickle.load(input_file)
+
     except FileNotFoundError:
         logger.error("File %s not found at ", model_path)
         logger.debug("Check path in the configuration file")
-    except Exception as error:
-        logger.error("General error reading file: %s", error)
-        logger.debug("Check file location for: %s", model_path)
-    try:
-        with open(encoder_path, "rb") as input_file:
-            enc = pickle.load(input_file)
-    except FileNotFoundError:
-        logger.error("File %s not found at ", encoder_path)
-        logger.debug("Check path in the configuration file")
-    except Exception as error:
-        logger.error("General error reading file: %s", error)
-        logger.debug("Check file location for: %s", encoder_path)
-    try:
-        with open(scaler_path, "rb") as input_file:
-            scaler = pickle.load(input_file)
-    except FileNotFoundError:
-        logger.error("File %s not found at ", scaler_path)
-        logger.debug("Check path in the configuration file")
-    except Exception as error:
-        logger.error("General error reading file: %s", error)
-        logger.debug("Check file location for: %s", scaler_path)
+
     return model, enc, scaler
 
 def transform(encoder, scaler, cat_inputs, trans_price):

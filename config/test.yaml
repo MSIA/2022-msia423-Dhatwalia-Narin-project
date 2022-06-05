@@ -74,6 +74,8 @@ train:
             'representative']
     response: 'response'
     results_path: models/model_results.yaml
+    matrix_path: models/confusion_matrix.png
+    roc_path: models/aucroc_curve.png
     model_path: models/model.pkl
     encoder_path: models/encoder.pkl
     scaler_path: models/scaler.pkl

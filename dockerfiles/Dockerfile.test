@@ -11,5 +11,4 @@ RUN pip3 install pytest==7.0.1
 
 COPY . /app
 
-
 CMD ["python3", "-m", "pytest"]

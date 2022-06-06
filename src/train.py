@@ -1,9 +1,11 @@
 """
-This module trains and evaluates a logistic regression model for binary classification
+This module contains functions to:
+1. One-hot encode & standard scale the data, train model for binary classification, save outputs
+2. Helper function to split the data, Train the model, save the modeling outputs
 """
 import logging
 import pickle
-
+import typing
 import pandas as pd
 import numpy as np
 import yaml
@@ -16,32 +18,42 @@ from sklearn.metrics import classification_report
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import ConfusionMatrixDisplay, RocCurveDisplay
 import matplotlib.pyplot as plt
+import sklearn.linear_model as sk
+import sklearn.preprocessing as skp
 
 logger = logging.getLogger(__name__)
 
-def train(local_path,
-          categ,
-          response,
-          results_path,
-          matrix_path,
-          roc_path,
-          model_path,
-          encoder_path,
-          scaler_path,
-          test_size,
-          random_state,
-          max_iter):
-    '''Orchestration function to train, evaluate & save profitability prediction model
+def train(local_path: str,
+          categ: typing.List[str],
+          response: str,
+          results_path: str,
+          matrix_path: str,
+          roc_path: str,
+          model_path: str,
+          encoder_path: str,
+          scaler_path: str,
+          test_size: float,
+          random_state: int,
+          max_iter: int) -> None:
+    '''
+    This function One-Hot encodes & Standard Scales the data. Next, train-test split
+    and model training steps are executed. Finally, all the modeling outputs get written to
+    the specified paths. Internally, this function calls the train_evaluate function.
+
     Args:
         local_path (str): path to cleaned data
-        categ (list): list of column names representing categorical features
-        response (str): column representing response
-        results_path (str): path to write model evaluation results to
-        model_path (str): path to pickled model
-        encoder_path (str): path to pickled encoder
+        categ (typing.List[str]): list of column names representing categorical features
+        response (str): column name of response variable
+        results_path (str): path to write yaml file with model evaluation results
+        matrix_path (str): path to write png image with test set confusion matrix
+        roc_path (str): path to write png image with test set AUCROC curve
+        model_path (str): path to write pickle object wth Logistic Regression model
+        encoder_path (str): path to write pickle object wth fitted One-Hot encoder
+        scaler_path (str): path to write pickle object wth fitted Standard Scaler
         test_size (float): fraction of original data to split into test set
         random_state (int): random state for training model
-        max_iter (int): Maximum number of iterations taken for the solvers to converge.
+        max_iter (int): maximum number of iterations taken for the solvers to converge
+
     Returns:
         None
     '''
@@ -58,7 +70,7 @@ def train(local_path,
                          data.drop(categ+[response], axis=1).columns.to_list()
     response = data[response].values.ravel()
 
-    model, scaler = train_evaluate(features, 
+    model, scaler = train_evaluate(features,
                                    response,
                                    results_path,
                                    matrix_path,
@@ -74,25 +86,33 @@ def train(local_path,
     pickle.dump(scaler, open(scaler_path, "wb"))
     logger.info("StandardScaler saved to: %s", scaler_path)
 
-def train_evaluate(features,
-                   response,
-                   results_path,
-                   matrix_path,
-                   roc_path,
-                   test_size,
-                   random_state,
-                   max_iter):
-    '''Function to split data, train model, and evaluate model
+def train_evaluate(features: pd.core.frame.DataFrame,
+                   response: np.ndarray,
+                   results_path: str,
+                   matrix_path: str,
+                   roc_path: str,
+                   test_size: float,
+                   random_state: int,
+                   max_iter: int) -> typing.Tuple[sk._logistic.LogisticRegression,
+                                                  skp._data.StandardScaler]:
+    '''
+    This function train-test splits the data, builds the model, evaluates the
+    model performance, then writes the ROCAUC Curve png, Confusion Matrix png,
+    and Evaluation Metrics yaml to specified paths
+
     Args:
         features (pandas.core.frame.DataFrame): DataFrame holding feature variables
         response (numpy.ndarray): array holding responses for each individual
-        results_path (str): path to write model evaluation results to
+        results_path (str): path to write yaml file with model evaluation results
+        matrix_path (str): path to write png image with confusion matrix
+        roc_path (str): path to write png image with AUCROC curve
         test_size (float): fraction of original data to split into test set
         random_state (int): random state for training model
-        max_depth (int): max depth of trees in random forest model
-        n_estimators (int): number of trees in random forest model
+        max_iter (int): maximum number of iterations taken for the solvers to converge
+
     Returns:
-        ovr (sklearn.multiclass.OneVsRestClassifier): multilabel random forest model
+        ovr (sk._logistic.LogisticRegression): binary logistic regression classifier object
+        scaler (skp._data.StandardScaler): fitted standard scaler object
     '''
     x_train, x_test, y_train, y_test = train_test_split(
                                                         features, response,
@@ -118,21 +138,24 @@ def train_evaluate(features,
     creport = classification_report(y_test, ypred_bin_test,
                                                     output_dict=True)
 
-    ConfusionMatrixDisplay.from_estimator(ovr, x_test, y_test)
-    plt.savefig(matrix_path)
-    logger.info("Confusion matrix saved to: %s", matrix_path)
-    RocCurveDisplay.from_estimator(ovr, x_test, y_test)
-    plt.savefig(roc_path)
-    logger.info("AUCROC curve saved to: %s", roc_path)
+    if matrix_path:
+        ConfusionMatrixDisplay.from_estimator(ovr, x_test, y_test)
+        plt.savefig(matrix_path)
+        logger.info("Confusion matrix saved to: %s", matrix_path)
+    if roc_path:
+        RocCurveDisplay.from_estimator(ovr, x_test, y_test)
+        plt.savefig(roc_path)
+        logger.info("AUCROC curve saved to: %s", roc_path)
 
     flat_list = [item for items in model.coef_.tolist() for item in items]
     coeffs = dict(zip(x_train.columns.tolist(), flat_list))
 
     results = [creport,{"AUC": str(auc), "Log Loss": str(loss),"Coefficients" : coeffs}]
 
-    with open(results_path, "w",encoding="utf8") as file:
-        yaml.dump(results, file)
-    logger.info("Model results written to: %s", results_path)
+    if results_path:
+        with open(results_path, "w",encoding="utf8") as file:
+            yaml.dump(results, file)
+        logger.info("Model results written to: %s", results_path)
     return ovr, scaler
 
 def get_model(model_path, encoder_path, scaler_path):

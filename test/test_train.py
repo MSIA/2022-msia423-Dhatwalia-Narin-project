@@ -1,17 +1,19 @@
 """
 This module defines the unit tests for train.py
 """
+import warnings 
 import pandas as pd
 import numpy as np
 import pytest
+
 from sklearn.metrics import roc_auc_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import log_loss
 from sklearn.metrics import classification_report
 from src import train
-
 
 # create a sample DataFrame to mimic the cleaned data
 original_df = pd.DataFrame({'owner'          :['dependent',
@@ -99,7 +101,7 @@ scaled_df = pd.DataFrame(scaled_df, index=x_train.index, columns=x_train.columns
 model = LogisticRegression(random_state=SEED,max_iter=15)
 model.fit(scaled_df, y_train)
 
-# Define functions with happy paths
+# define functions with happy paths
 def test_model_coeffs():
     """
     Check if the logistic regression model learns the correct coefficients
@@ -207,3 +209,37 @@ def test_model_classification_report():
                                                     output_dict=True,
                                                     zero_division=0)
     assert actual_report == expected_report
+
+# manually recreate the raw input transforms to obtain the expected model input
+
+df_two_row = pd.DataFrame({'owner':['self','self'],
+                           'ticker':['AAPL','GOOG'],
+                           'type_trans':['purchase','sale_full'],
+                           'amount':['$1,001 - $15,000','$1,001 - $15,000'],
+                           'representative':['Hon. Alan S. Lowenthal','Hon. Kurt Schrader'],
+                           'trans_price':[155.3, 124.5]})
+
+with warnings.catch_warnings():
+    warnings.simplefilter('ignore')
+    enc = OneHotEncoder()
+    dummy_categ = enc.fit_transform(df_two_row[['owner','ticker','type_trans','amount','representative']])
+    dummy_categ = pd.DataFrame(dummy_categ.toarray())
+    features = pd.concat([dummy_categ, df_two_row['trans_price']], axis=1)
+    scaler = StandardScaler()
+    scaler.fit_transform(features)
+    cat_inputs = ['self','GOOG','sale_full','$1,001 - $15,000','Hon. Alan S. Lowenthal']
+    correct_output = enc.transform([cat_inputs]).toarray()
+    correct_output = np.append(correct_output[0], 153.6)
+    correct_output = [correct_output]
+    correct_output = scaler.transform(correct_output)
+
+def test_transform():
+    """
+    Check if the transformed output is the same as expected
+    """
+    with warnings.catch_warnings():
+        warnings.simplefilter('ignore')
+        actual_output = train.transform(enc, scaler,cat_inputs, 153.6)
+    print(actual_output)
+    print(correct_output)
+    assert list(actual_output[0]) == list(correct_output[0])

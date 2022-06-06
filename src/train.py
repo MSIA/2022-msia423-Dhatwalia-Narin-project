@@ -3,8 +3,8 @@ This module contains functions to:
 1. One-hot encode & standard scale the data, train model for binary classification, save outputs
 2. Helper function to split the data, Train the model, save the modeling outputs
 """
-from ctypes import Union
 import logging
+import warnings
 import pickle
 import typing
 import pandas as pd
@@ -195,7 +195,7 @@ def get_model(model_path:str,
 def transform(encoder:skp._encoders.OneHotEncoder,
               scaler:skp._data.StandardScaler,
               cat_inputs:typing.List[str],
-              trans_price:float) -> typing.List[Union[int,float]]:
+              trans_price:float) -> typing.List[typing.Union[int,float]]:
     '''
     Transforms raw input into one-hot encoded and standard scaled input for making
     predictions using the Logistic Regression model
@@ -208,10 +208,12 @@ def transform(encoder:skp._encoders.OneHotEncoder,
     Returns:
         test_new (typing.List[Union[int,float]]): encoded inputs for model prediction
     '''
-    test_new = encoder.transform([cat_inputs]).toarray()  # needs 2d array
-    test_new = np.append(test_new[0], trans_price)  # encoder returns 2d array, need element inside
-    test_new = [test_new]  # predict function expects 2d arrray
-    test_new = scaler.transform(test_new)
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        test_new = encoder.transform([cat_inputs]).toarray()  # needs 2d array
+        test_new = np.append(test_new[0], trans_price)  # encoder returns 2d array, need element inside
+        test_new = [test_new]  # predict function expects 2d arrray
+        test_new = scaler.transform(test_new)
     return test_new
 
 def predict_ind(model:sk._logistic.LogisticRegression,

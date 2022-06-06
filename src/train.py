@@ -3,6 +3,7 @@ This module contains functions to:
 1. One-hot encode & standard scale the data, train model for binary classification, save outputs
 2. Helper function to split the data, Train the model, save the modeling outputs
 """
+from ctypes import Union
 import logging
 import pickle
 import typing
@@ -97,8 +98,8 @@ def train_evaluate(features: pd.core.frame.DataFrame,
                                                   skp._data.StandardScaler]:
     '''
     This function train-test splits the data, builds the model, evaluates the
-    model performance, then writes the ROCAUC Curve png, Confusion Matrix png,
-    and Evaluation Metrics yaml to specified paths
+    model performance, then outputs the ROCAUC Curve png, Confusion Matrix png,
+    and Evaluation Metrics yaml to the specified paths
 
     Args:
         features (pandas.core.frame.DataFrame): DataFrame holding feature variables
@@ -158,14 +159,22 @@ def train_evaluate(features: pd.core.frame.DataFrame,
         logger.info("Model results written to: %s", results_path)
     return ovr, scaler
 
-def get_model(model_path, encoder_path, scaler_path):
-    '''Opens pickled model and encoder for the data
+def get_model(model_path:str,
+              encoder_path:str,
+              scaler_path:str) -> typing.Tuple[sk._logistic.LogisticRegression,
+                                               skp._encoders.OneHotEncoder,
+                                               skp._data.StandardScaler]:
+    '''
+    Fetches the pickled model, encoder, scalar from the specified paths
+
     Args:
         model_path (str): path to pickled model
         encoder_path (str): path to pickled encoder
+        scaler_path (str): path to pickled standard scaler
     Returns:
-        model (): binary classifier logistic regression model
-        encoder (sklearn.preprocessing._encoders.OneHotEncoder): encoder for categorical variables
+        model (sk._logistic.LogisticRegression): binary classifier logistic regression model
+        encoder (skp._encoders.OneHotEncoder): encoder for categorical variables
+        scaler (skp._data.StandardScaler): standard scaler for preprocessing
     '''
     try:
         with open(model_path, "rb") as input_file:
@@ -183,14 +192,21 @@ def get_model(model_path, encoder_path, scaler_path):
 
     return model, enc, scaler
 
-def transform(encoder, scaler, cat_inputs, trans_price):
-    '''Transforms raw input into encoded input for model use
+def transform(encoder:skp._encoders.OneHotEncoder,
+              scaler:skp._data.StandardScaler,
+              cat_inputs:typing.List[str],
+              trans_price:float) -> typing.List[Union[int,float]]:
+    '''
+    Transforms raw input into one-hot encoded and standard scaled input for making
+    predictions using the Logistic Regression model
+
     Args:
-        encoder (sklearn.preprocessing._encoders.OneHotEncoder): encoder for categorical variables
-        cat_inputs (:obj:`list` of :obj:`str`): categorical inputs of individual
+        encoder (skp._encoders.OneHotEncoder): encoder for categorical variables
+        scaler (skp._data.StandardScaler): standard scaler for preprocessing
+        cat_inputs (typing.List[str]): categorical inputs of transaction
         trans_price (float): stock price on the day of transaction
     Returns:
-        test_new (2D :obj:`list` of :obj:`int): encoded inputs for model prediction
+        test_new (typing.List[Union[int,float]]): encoded inputs for model prediction
     '''
     test_new = encoder.transform([cat_inputs]).toarray()  # needs 2d array
     test_new = np.append(test_new[0], trans_price)  # encoder returns 2d array, need element inside
@@ -198,15 +214,22 @@ def transform(encoder, scaler, cat_inputs, trans_price):
     test_new = scaler.transform(test_new)
     return test_new
 
-def predict_ind(model, encoder, scaler, cat_inputs, trans_price):
-    '''Predicts the probabilities for a new model
+def predict_ind(model:sk._logistic.LogisticRegression,
+                encoder:skp._encoders.OneHotEncoder,
+                scaler:skp._data.StandardScaler,
+                cat_inputs: typing.List[str],
+                trans_price:float) -> np.ndarray:
+    '''
+    Predicts the probabilities for a new row of input data provided by the user
+
     Args:
-        model: binary logistic regression model
-        encoder (sklearn.preprocessing._encoders.OneHotEncoder): encoder for categorical variables
-        cat_inputs (list): categorical inputs of individual
-        trans_price (float): birth year for individual
+        model (sk._logistic.LogisticRegression): binary logistic regression model
+        encoder (skp._encoders.OneHotEncoder): one-hot encoder for categorical variables
+        scaler (skp._data.StandardScaler): standard scaler for preprocessing
+        cat_inputs (typing.List[str]): categorical inputs of stock transaction
+        trans_price (float): price of stock on day of trade
     Returns:
-        prediction (numpy.ndarray): probability of profitable investment
+        prediction (numpy.ndarray): probability of short term increase in stock price
     '''
     test_new = transform(encoder, scaler, cat_inputs, trans_price)
     prediction = model.predict_proba(test_new)

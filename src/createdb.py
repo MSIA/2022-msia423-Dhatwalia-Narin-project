@@ -20,7 +20,7 @@ class Transaction(Base):
     """Create a table to be set up for capturing recent transactions
     """
 
-    __tablename__ = "transaction"
+    __tablename__ = 'transaction'
 
     id = Column(Integer, primary_key=True,autoincrement=True)
     representative = Column(String(200), unique=False, nullable=False)
@@ -31,7 +31,7 @@ class Transaction(Base):
     type = Column(String(200), unique=False, nullable=False)
 
     def __repr__(self):
-        return f"<Transaction {self.id}>"
+        return f'<Transaction {self.id}>'
 
 # Create the table with correct schema in RDS or SQLite
 def create_db():
@@ -47,7 +47,7 @@ def create_db():
 
     try:
         Base.metadata.create_all(engine)
-        logger.info("Table created from URI")
+        logger.info('Table created from URI')
     except sql.exc.OperationalError:
         logger.error('Unable to create database')
         logger.warning('Please connect to Northwestern VPN or campus WiFi,\
@@ -75,7 +75,7 @@ def add_df(local_path):
         logger.info('Recent transaction data added to "transaction" table')
     except sql.exc.OperationalError as error_name:
         logger.debug('Make sure you are connected to the VPN')
-        logger.error("Error with sql functionality: %s", str(error_name))
+        logger.error('Error with sql functionality: %s', str(error_name))
 
 # Needed to connect via Flask
 class ResponseManager:
@@ -98,4 +98,4 @@ class ResponseManager:
             session = sessionmaker(bind=engine)
             self.session = session()
         else:
-            raise ValueError("Need either an engine string or a Flask app to initialize")
+            raise ValueError('Need either an engine string or a Flask app to initialize')

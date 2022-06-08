@@ -10,3 +10,4 @@ fsspec==2022.5.0
 s3fs==2022.5.0
 scikit-learn==1.1.1
 matplotlib==3.5.2
+yfinance==0.1.70

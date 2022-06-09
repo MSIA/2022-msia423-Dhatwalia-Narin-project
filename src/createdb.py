@@ -39,9 +39,12 @@ def create_db():
     if os.environ.get('SQLALCHEMY_DATABASE_URI') is None:
         logger.info('Database location: Local')
         logger.debug('Set MYSQL_HOST variable for AWS RDS instead of local')
-    else:
+    elif 'rds.amazonaws.com' in os.environ.get('SQLALCHEMY_DATABASE_URI'):
         logger.info('Database location: AWS RDS')
         logger.debug('Remove MYSQL_HOST variable for local instead of AWS')
+    else:
+        logger.info('Database location: Local')
+        logger.debug('Set MYSQL_HOST variable for AWS RDS instead of local')
     # set up mysql connection
     engine = sql.create_engine(SQLALCHEMY_DATABASE_URI)
 
@@ -61,9 +64,12 @@ def add_df(local_path):
     if os.environ.get('SQLALCHEMY_DATABASE_URI') is None:
         logger.info('Database location: Local')
         logger.debug('Set MYSQL_HOST variable for AWS RDS instead of local')
-    else:
+    elif 'rds.amazonaws.com' in os.environ.get('SQLALCHEMY_DATABASE_URI'):
         logger.info('Database location: AWS RDS')
         logger.debug('Remove MYSQL_HOST variable for local instead of AWS')
+    else:
+        logger.info('Database location: Local')
+        logger.debug('Set MYSQL_HOST variable for AWS RDS instead of local')
     # set up mysql connection
     engine = sql.create_engine(SQLALCHEMY_DATABASE_URI)
 

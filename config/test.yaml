@@ -106,7 +106,7 @@ train:
             'amount',
             'representative']
     response: 'response'
-    results_path: figures/model_results.yaml
+    results_path: models/model_results.yaml
     matrix_path: figures/confusion_matrix.png
     roc_path: figures/aucroc_curve.png
     model_path: null

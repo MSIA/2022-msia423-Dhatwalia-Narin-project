@@ -34,7 +34,10 @@ parser.add_argument('--config', default='config/test.yaml',
 subparsers = parser.add_subparsers(dest='subparser_name')
 
 # subparser for creating a table
-sb_create = subparsers.add_parser('create_db', description='Create table')
+sb_create = subparsers.add_parser('create_table', description='Create a database table')
+
+# subparser for ingesting data to the table
+sb_ingest = subparsers.add_parser('ingest_data', description='Ingest data to the table')
 
 # subparser for downloading API data and pushing to S3 bucket
 sb_ingest_new = subparsers.add_parser('acquire_new', description='Add data to s3 bucket')
@@ -88,8 +91,10 @@ if __name__ == '__main__':
         upload_s3(args.s3_raw,**y_conf['acquire_new']['upload_s3']['current_price'])
         upload_s3(args.s3_raw,**y_conf['acquire_new']['upload_s3']['transact_price'])
 
-    elif sp_used == 'create_db':
+    elif sp_used == 'create_table':
         create_db()
+
+    elif sp_used == 'ingest_data':
         add_df(y_conf['create_db']['local_path'])
 
     elif sp_used == 'clean':

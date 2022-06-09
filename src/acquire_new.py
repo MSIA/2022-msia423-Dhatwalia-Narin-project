@@ -45,6 +45,7 @@ def get_transactions(endpoint:str,
     # Run the loop up until the specified limit is reached
     for i in range(attempts):
         try:
+            logger.info('Obtaining data from the Stockwatcher API')
             url = endpoint
             response_init = requests.get(url)
             response = response_init.json()
@@ -75,7 +76,6 @@ def get_transactions(endpoint:str,
             logger.error('Need to add http:// to beginning of url. Url provided: %s', url)
             raise except_2
         else:
-            logger.info('Data obtained successfully from Stockwatcher API')
             logger.info('Stockwatcher data saved in %s', save_path_1)
             logger.info('Recent transaction data saved in %s', save_path_2)
             break
@@ -85,7 +85,17 @@ def get_stock_price(input_path:str,
                     output_path_2:str,
                     tickers: typing.List[str]) -> None:
     """
-    Obtain stock price results from Yahoo finance API
+    Obtain the stock price data from Yahoo finance API by looping over
+    the DataFrame obtained from Stockwatcher API and obtaining the transaction
+    dates
+
+    Args:
+        input_path (str): path to Stockwatcher API data
+        output_path_1 (str): path to save historical stock price data
+        output_path_2 (str): path to save current stock price data
+        tickers (typing.List[str]): list of tickers in the Stockwatcher data
+    Returns:
+        None
     """
     df = pd.read_csv(input_path)
     purch_dates = df.groupby(['transaction_date', 'ticker']).size().reset_index(name='freq')
@@ -117,11 +127,12 @@ def get_stock_price(input_path:str,
     current_price = current_price.dropna()
     day_price.to_csv(output_path_1, index=False)
     current_price.to_csv(output_path_2, index = False)
-    logger.info('YFinance transaction day stock price data saved to %s', output_path_1)
-    logger.info('YFinance current stock price data saved to %s', output_path_2)
+    logger.info('YFinance historical stock-price data saved to %s', output_path_1)
+    logger.info('YFinance current stock-price data saved to %s', output_path_2)
 
-def parse_s3(s3path):
-    '''Parses string to extract bucket name and s3 path
+def parse_s3(s3path:str)->typing.Tuple[str,str]:
+    '''
+    Parses string to extract bucket name and s3 path
     Args:
         s3path (str): full s3 path
     Returns:

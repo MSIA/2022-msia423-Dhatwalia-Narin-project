@@ -94,8 +94,8 @@ train:
     random_state: 29
     max_iter: 5000
     output_data_path: null
-    pred_path_1: data/clean/predicted_classes.csv
-    pred_path_2: data/clean/predicted_probs.csv
+    pred_path_1: models/predicted_classes.csv
+    pred_path_2: models/predicted_probs.csv
 
   get_metrics:
 

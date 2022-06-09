@@ -98,7 +98,7 @@ def add_response(input_data:typing.Union[str,pd.core.frame.DataFrame]) -> pd.cor
     current price is higher than the historical price, else it assigns 0
 
     Args:
-        input_data (typing.Union[str,pd.core.frame.DataFrame]): path where the input 
+        input_data (typing.Union[str,pd.core.frame.DataFrame]): path where the input
         DataFrame should be obtained from, or alternatively, an actual DataFrame object
     Returns:
         data (pd.core.frame.DataFrame): DataFrame with the response included

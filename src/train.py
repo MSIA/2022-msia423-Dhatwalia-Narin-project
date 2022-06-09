@@ -2,6 +2,9 @@
 This module contains functions to:
 1. One-hot encode & standard scale the data, train model for binary classification, save outputs
 2. Helper function to split the data, Train the model, save the modeling outputs
+3. Get the model, scaler, and encoder from specified paths
+4. Transform user-input into an input accepted by the model
+5. Make prediction on a single row of user input after transforming
 """
 import logging
 import warnings
@@ -112,8 +115,9 @@ def train_evaluate(features: pd.core.frame.DataFrame,
                    random_state: int,
                    max_iter: int,
                    pred_path_1: str,
-                   pred_path_2: str) -> typing.Tuple[sk._logistic.LogisticRegression,
-                                                   skp._data.StandardScaler]:
+                   pred_path_2: str) -> typing.Tuple[typing.Union[sk._logistic.LogisticRegression,
+                                                   skp._data.StandardScaler,
+                                                   np.ndarray]]:
     '''
     This function train-test splits the data, builds the model, evaluates the
     model performance, then outputs the ROCAUC Curve png, Confusion Matrix png,
@@ -134,6 +138,10 @@ def train_evaluate(features: pd.core.frame.DataFrame,
     Returns:
         log_reg (sk._logistic.LogisticRegression): binary logistic regression classifier object
         scaler (skp._data.StandardScaler): fitted standard scaler object
+        x_train (np.ndarray): independent variables in the training data
+        x_test (np.ndarray): independent variables in the test data
+        y_train (np.ndarray): dependent variable in the training data
+        y_test (np.ndarray): dependent variable in the test data
     '''
     x_train, x_test, y_train, y_test = train_test_split(features, response,
                                                         test_size=test_size,

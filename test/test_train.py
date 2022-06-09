@@ -1,7 +1,7 @@
 """
 This module defines the unit tests for train.py
 """
-import warnings 
+import warnings
 import pandas as pd
 import numpy as np
 import pytest

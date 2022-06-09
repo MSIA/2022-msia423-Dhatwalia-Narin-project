@@ -4,7 +4,7 @@
 * [Project Charter](#Project-Charter)
 * [Directory structure ](#Directory-structure)
 * [Instructions to execute the Pipeline](#Instructions-to-execute-the-Pipeline)
-* [Instructions to connect to Database](#Connecting-to-a-Database)
+* [Instructions to connect to a Database](#Connecting-to-a-Database)
 * [Running the app ](#Running-the-app)
 	* [1. Build the Image ](#1.-Build-the-Image)
 	* [2. Run the Container ](#2.-Run-the-Container)
@@ -13,7 +13,7 @@
 
 ## Project Charter
 
-## Predict the profitability of stock investments made by members of U.S. Congress
+## Identify Possible Instance of Insider Trading by Members of U.S. Congress
 
 Developer: Narin Dhatwalia
 
@@ -31,15 +31,15 @@ Stock picking by elected officials gets worrisome because there is widespread co
 
 ### Vision 
 
-The aim of the project is to predict the profitability of stock investments made by members of U.S. Congress. The final goal is to build a model which can accurately determine whether an investment made by a U.S. lawmaker will be profitable in the future. Results from this model can benefit retail investors while picking their own stocks, as well as watchdog groups to explore possible cases of insider trading.
+The aim of the project is to predict the probability of short-term increase in a company's stock price after a U.S. Congress official has invested. The final goal is to build a model which can accurately determine whether an investment made by a U.S. lawmaker will lead to immediate increase in the company's stock price. Results from this model can benefit retail investors while picking their own stocks, as well as watchdog groups to explore possible cases of insider trading.
 
 ### Mission
 
-A logistic regression model is leveraged for the purpose of classifying stock purchases as "profitable" vs. "non-profitable". A "profitable" investment is defined as a stock purchase by a Congress member where that specific company's stock is trading at a higher price today than the price on the date of transaction (i.e. when the Congress official purchased it).
+A logistic regression model is leveraged for the purpose of binary classification. A response value of 1 is assigned if the company's stock is trading at a higher price today than on the day of the transaction (i.e. when the Congress official made the purchase/sale).
 
-Two APIs are used to source the data for this project. The "House Stock Watcher" API is used to extract Stock purchase transactions of Congress members (from documents filed under the Stock Act of 2012), and the "Yahoo Finance" API is used to obtain the prices at which different stocks were trading on a specific day.
+Two APIs are used to source the data for this project. The "House Stock Watcher" API is used to extract stock transactions of Congress members (from documents filed under the Stock Act of 2012), and the "Yahoo Finance" API is used to obtain the prices at which different stocks were trading on a specific day.
 
-Once the app is live, users can obtain a predicted probability of the transaction resulting in short-term increase of stock price. This information can be vital for retail investors who track financial disclosures made by Congress members, and wish to assess whether they should also purchase the same stock. Moreover, watchdog groups can possibly interpret a very high probability as a possible suggestion of insider trading. Note that users can also obtain a similar probability predictions for all past transactions made by Congress members. 
+Once the app is live, users can obtain a probability of the transaction resulting in short-term increase of stock price. This information can be vital for retail investors who track financial disclosures made by Congress members, and wish to assess whether they should also purchase the same stock. Moreover, watchdog groups can possibly interpret a very high probability as a possible suggestion of insider trading.
 
 Features to be input by users once the model is live:
 
@@ -58,8 +58,7 @@ Yahoo Finance: https://pypi.org/project/yfinance/
 
 The two success criteria for this project are as follows:
 
-* The prediction accuracy and the AUC/ROC score of the binary classifier are concrete indicators of the model's predictive performance. 
-Before the model goes live, the prediction accuracy should be above 0.70 and the AUC/ROC score should be above 0.85.
+* The prediction accuracy and the AUC/ROC score of the binary classifier are concrete indicators of the model's predictive performance. Before the model goes live, the prediction accuracy should be above 0.70 and the AUC/ROC score should be above 0.85.
 
 * Once the model goes live, it becomes important to measure user engagement. Therefore, the business outcomes of concern will be the number of predictions made per day, number of website visits per day, and the percentage of repeat visitors (i.e. users that return to the webpage within the same week).
 

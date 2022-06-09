@@ -108,6 +108,7 @@ The two success criteria for this project are as follows:
 ├── requirements.txt                  <- Python package dependencies 
 ├── .pylintrc                         <- Configuration file to customize Pylint functionality
 ├── run-pipeline.sh                   <- Shell script to run the entire modeling pipeline
+├── .gitignore                        <- Used for specifying which files not to track via the Git workflow
 ```
 ## Instructions to execute the Pipeline
 

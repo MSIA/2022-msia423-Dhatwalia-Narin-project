@@ -75,12 +75,12 @@ The two success criteria for this project are as follows:
 │   ├── local/                        <- Directory for env variables & other local configurations that *don't sync** to Github 
 │   ├── logging/                      <- Configuration of python loggers
 │   ├── flaskconfig.py                <- Configurations for Flask API
-│	├── test.yaml					  <- YAML file for passing arguments arguments to the calling script
+│   ├── test.yaml		      <- YAML file for passing arguments arguments to the calling script
 │
 ├── data                              <- Folder that contains data used or generated
 │   ├── external/                     <- Data downloaded directly from the APIs (files saved here in step 1 of the pipeline)
 │   ├── clean/                        <- Intermediate datasets created while running the pipeline (most files get saved here)
-│   ├── s3_downloads/				  <- Data downloaded directly from AWS S3 (these files get used in the pipeline)
+│   ├── s3_downloads/		      <- Data downloaded directly from AWS S3 (these files get used in the pipeline)
 │
 ├── deliverables/                     <- Presentation slides saved here in both PDF and PPT file format
 │
@@ -88,7 +88,7 @@ The two success criteria for this project are as follows:
 │   ├── Dockerfile.app                <- Dockerfile for building image to run web app
 │   ├── Dockerfile                    <- Dockerfile for building image to execute run.py  
 │   ├── Dockerfile.test               <- Dockerfile for building image to run unit tests
-│   ├── Dockerfile.pipeline			  <- Dockerfile for building image to run complete pipeline
+│   ├── Dockerfile.pipeline	      <- Dockerfile for building image to run complete pipeline
 │
 ├── figures/                          <- ROCAUC curve and Confusion Matrix get saved here
 │

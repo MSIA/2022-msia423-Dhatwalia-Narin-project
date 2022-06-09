@@ -35,7 +35,10 @@ def train(local_path: str,
           scaler_path: str,
           test_size: float,
           random_state: int,
-          max_iter: int) -> None:
+          max_iter: int,
+          output_data_path:str,
+          pred_path_1:str,
+          pred_path_2:str) -> None:
     '''
     This function One-Hot encodes & Standard Scales the data. Next, train-test split
     and model training steps are executed. Finally, all the modeling outputs get written to
@@ -54,6 +57,9 @@ def train(local_path: str,
         test_size (float): fraction of original data to split into test set
         random_state (int): random state for training model
         max_iter (int): maximum number of iterations taken for the solvers to converge
+        output_data_path (str): path to save x_train, x_test, y_train, y_test
+        pred_path_1 (str): path to save predicted classes
+        pred_path_2 (str): path to save predicted probabilities
 
     Returns:
         None
@@ -71,21 +77,31 @@ def train(local_path: str,
                          data.drop(categ+[response], axis=1).columns.to_list()
     response = data[response].values.ravel()
 
-    model, scaler = train_evaluate(features,
+    model, scaler, x_train, x_test, y_train, y_test = train_evaluate(features,
                                    response,
                                    results_path,
                                    matrix_path,
                                    roc_path,
                                    test_size,
                                    random_state,
-                                   max_iter)
+                                   max_iter,
+                                   pred_path_1,
+                                   pred_path_2)
 
-    pickle.dump(model, open(model_path, "wb"))
-    logger.info("Model saved to: %s", model_path)
-    pickle.dump(enc, open(encoder_path, "wb"))
-    logger.info("OneHotEncoder saved to: %s", encoder_path)
-    pickle.dump(scaler, open(scaler_path, "wb"))
-    logger.info("StandardScaler saved to: %s", scaler_path)
+    if output_data_path:
+        pd.DataFrame(x_train).to_csv(output_data_path+"/x_train.csv", index=False)
+        pd.DataFrame(x_test).to_csv(output_data_path+"/x_test.csv", index=False)
+        pd.DataFrame(y_train).to_csv(output_data_path+"/y_train.csv", index=False)
+        pd.DataFrame(y_test).to_csv(output_data_path+"/y_test.csv", index=False)
+        logger.info("Data after train/test split saved in %s folder", output_data_path)
+
+    if model_path and encoder_path and scaler_path:
+        pickle.dump(model, open(model_path, "wb"))
+        logger.info("Model saved to: %s", model_path)
+        pickle.dump(enc, open(encoder_path, "wb"))
+        logger.info("OneHotEncoder saved to: %s", encoder_path)
+        pickle.dump(scaler, open(scaler_path, "wb"))
+        logger.info("StandardScaler saved to: %s", scaler_path)
 
 def train_evaluate(features: pd.core.frame.DataFrame,
                    response: np.ndarray,
@@ -94,15 +110,17 @@ def train_evaluate(features: pd.core.frame.DataFrame,
                    roc_path: str,
                    test_size: float,
                    random_state: int,
-                   max_iter: int) -> typing.Tuple[sk._logistic.LogisticRegression,
-                                                  skp._data.StandardScaler]:
+                   max_iter: int,
+                   pred_path_1: str,
+                   pred_path_2: str) -> typing.Tuple[sk._logistic.LogisticRegression,
+                                                   skp._data.StandardScaler]:
     '''
     This function train-test splits the data, builds the model, evaluates the
     model performance, then outputs the ROCAUC Curve png, Confusion Matrix png,
     and Evaluation Metrics yaml to the specified paths
 
     Args:
-        features (pandas.core.frame.DataFrame): DataFrame holding feature variables
+        features (pd.core.frame.DataFrame): DataFrame holding feature variables
         response (numpy.ndarray): array holding responses for each individual
         results_path (str): path to write yaml file with model evaluation results
         matrix_path (str): path to write png image with confusion matrix
@@ -110,17 +128,17 @@ def train_evaluate(features: pd.core.frame.DataFrame,
         test_size (float): fraction of original data to split into test set
         random_state (int): random state for training model
         max_iter (int): maximum number of iterations taken for the solvers to converge
+        pred_path_1 (str): path for saving predicted classes
+        pred_path_2 (str): path for saving predicted probabilities
 
     Returns:
-        ovr (sk._logistic.LogisticRegression): binary logistic regression classifier object
+        log_reg (sk._logistic.LogisticRegression): binary logistic regression classifier object
         scaler (skp._data.StandardScaler): fitted standard scaler object
     '''
-    x_train, x_test, y_train, y_test = train_test_split(
-                                                        features, response,
+    x_train, x_test, y_train, y_test = train_test_split(features, response,
                                                         test_size=test_size,
                                                         random_state=random_state)
-    model = LogisticRegression(max_iter=max_iter,
-                               random_state=random_state)
+    model = LogisticRegression(max_iter=max_iter,random_state=random_state)
     logger.debug("Model training")
     scaler = StandardScaler()
     scaled_x_train = scaler.fit_transform(x_train)
@@ -129,35 +147,39 @@ def train_evaluate(features: pd.core.frame.DataFrame,
     x_train = pd.DataFrame(scaled_x_train, index=x_train.index, columns=x_train.columns)
     x_test = pd.DataFrame(scaled_x_test, index=x_test.index, columns=x_test.columns)
 
-    ovr = model.fit(x_train, y_train)
-    ypred_bin_test = ovr.predict(x_test)
-    ypred_proba_test = ovr.predict_proba(x_test)
+    log_reg = model.fit(x_train, y_train)
+    ypred_bin_test = log_reg.predict(x_test)
+    ypred_proba_test = log_reg.predict_proba(x_test)
+
+    if pred_path_1 and pred_path_2:
+        pd.DataFrame(ypred_bin_test).to_csv(pred_path_1,index=False)
+        pd.DataFrame(ypred_proba_test).to_csv(pred_path_2,index=False)
+        logger.info("Saved test-set predicted classes to %s", pred_path_1)
+        logger.info("Saved test-set predicted probabilities to %s", pred_path_2)
 
     auc = roc_auc_score(y_test, ypred_proba_test[:, 1])
     loss = log_loss(y_test, ypred_proba_test)
-
-    creport = classification_report(y_test, ypred_bin_test,
-                                                    output_dict=True)
+    creport = classification_report(y_test, ypred_bin_test,output_dict=True)
 
     if matrix_path:
-        ConfusionMatrixDisplay.from_estimator(ovr, x_test, y_test)
+        ConfusionMatrixDisplay.from_estimator(log_reg, x_test, y_test)
         plt.savefig(matrix_path)
         logger.info("Confusion matrix saved to: %s", matrix_path)
     if roc_path:
-        RocCurveDisplay.from_estimator(ovr, x_test, y_test)
+        RocCurveDisplay.from_estimator(log_reg, x_test, y_test)
         plt.savefig(roc_path)
         logger.info("AUCROC curve saved to: %s", roc_path)
 
     flat_list = [item for items in model.coef_.tolist() for item in items]
     coeffs = dict(zip(x_train.columns.tolist(), flat_list))
-
     results = [creport,{"AUC": str(auc), "Log Loss": str(loss),"Coefficients" : coeffs}]
 
     if results_path:
         with open(results_path, "w",encoding="utf8") as file:
             yaml.dump(results, file)
         logger.info("Model results written to: %s", results_path)
-    return ovr, scaler
+
+    return log_reg, scaler, x_train, x_test, y_train, y_test
 
 def get_model(model_path:str,
               encoder_path:str,

@@ -101,7 +101,7 @@ scaled_df = pd.DataFrame(scaled_df, index=x_train.index, columns=x_train.columns
 model = LogisticRegression(random_state=SEED,max_iter=15)
 model.fit(scaled_df, y_train)
 
-# define functions with happy paths
+# define tests with happy paths to check the train_evaluate function
 def test_model_coeffs():
     """
     Check if the logistic regression model learns the correct coefficients
@@ -113,7 +113,9 @@ def test_model_coeffs():
                                         roc_path=None,
                                         test_size=0.50,
                                         random_state=SEED,
-                                        max_iter=15)[0]
+                                        max_iter=15,
+                                        pred_path_1=None,
+                                        pred_path_2=None)[0]
     actual_coeffs = [item for items in output_model.coef_.tolist() for item in items]
     expected_coeffs = [item for items in model.coef_.tolist() for item in items]
     assert actual_coeffs == expected_coeffs
@@ -129,7 +131,9 @@ def test_model_pred_classes():
                                         roc_path=None,
                                         test_size=0.50,
                                         random_state=SEED,
-                                        max_iter=15)[0]
+                                        max_iter=15,
+                                        pred_path_1=None,
+                                        pred_path_2=None)[0]
     actual_preds = output_model.predict(x_test)
     expected_preds = model.predict(x_test)
     assert list(actual_preds) == list(expected_preds)
@@ -145,7 +149,9 @@ def test_model_pred_probs():
                                         roc_path=None,
                                         test_size=0.50,
                                         random_state=SEED,
-                                        max_iter=15)[0]
+                                        max_iter=15,
+                                        pred_path_1=None,
+                                        pred_path_2=None)[0]
     actual_preds = output_model.predict_proba(x_test)[:, 1]
     print(actual_preds)
     expected_preds = model.predict_proba(x_test)[:, 1]
@@ -163,7 +169,9 @@ def test_model_auc_score():
                                         roc_path=None,
                                         test_size=0.50,
                                         random_state=SEED,
-                                        max_iter=15)[0]
+                                        max_iter=15,
+                                        pred_path_1=None,
+                                        pred_path_2=None)[0]
     actual_preds = output_model.predict_proba(x_test)[:, 1]
     auc_actual = roc_auc_score(y_test, actual_preds)
     expected_preds = model.predict_proba(x_test)[:, 1]
@@ -181,7 +189,9 @@ def test_model_log_loss():
                                         roc_path=None,
                                         test_size=0.50,
                                         random_state=SEED,
-                                        max_iter=15)[0]
+                                        max_iter=15,
+                                        pred_path_1=None,
+                                        pred_path_2=None)[0]
     actual_preds = output_model.predict_proba(x_test)
     loss_actual =  log_loss(y_test, actual_preds)
     expected_preds = model.predict_proba(x_test)
@@ -199,7 +209,9 @@ def test_model_classification_report():
                                         roc_path=None,
                                         test_size=0.50,
                                         random_state=SEED,
-                                        max_iter=15)[0]
+                                        max_iter=15,
+                                        pred_path_1=None,
+                                        pred_path_2=None)[0]
     actual_preds = output_model.predict(x_test)
     actual_report = classification_report(y_test, actual_preds,
                                                     output_dict=True,
@@ -210,7 +222,7 @@ def test_model_classification_report():
                                                     zero_division=0)
     assert actual_report == expected_report
 
-# manually recreate the raw input transforms to obtain the expected model input
+# manually recreate the raw input transforms to obtain the expected model and input
 
 df_two_row = pd.DataFrame({'owner':['self','self'],
                            'ticker':['AAPL','GOOG'],
@@ -225,21 +237,117 @@ with warnings.catch_warnings():
     dummy_categ = enc.fit_transform(df_two_row[['owner','ticker','type_trans','amount','representative']])
     dummy_categ = pd.DataFrame(dummy_categ.toarray())
     features = pd.concat([dummy_categ, df_two_row['trans_price']], axis=1)
-    scaler = StandardScaler()
-    scaler.fit_transform(features)
+    scaler_2 = StandardScaler()
+    scaler_2.fit(features)
     cat_inputs = ['self','GOOG','sale_full','$1,001 - $15,000','Hon. Alan S. Lowenthal']
     correct_output = enc.transform([cat_inputs]).toarray()
     correct_output = np.append(correct_output[0], 153.6)
     correct_output = [correct_output]
-    correct_output = scaler.transform(correct_output)
+    correct_output = scaler_2.transform(correct_output)
 
+    model_2 = LogisticRegression()
+    temp = enc.transform(df_two_row.drop(['trans_price'], axis = 1)).toarray()
+    temp = pd.DataFrame(temp)
+    temp = pd.concat([temp, df_two_row['trans_price']], axis=1)
+    model_2.fit(scaler_2.transform(temp), np.array([1,0]))
+
+# define test with happy path to check the test_transform function
 def test_transform():
     """
     Check if the transformed output is the same as expected
     """
     with warnings.catch_warnings():
         warnings.simplefilter('ignore')
-        actual_output = train.transform(enc, scaler,cat_inputs, 153.6)
-    print(actual_output)
-    print(correct_output)
+        actual_output = train.transform(enc, scaler_2,cat_inputs, 153.6)
     assert list(actual_output[0]) == list(correct_output[0])
+
+# define test with happy path to check the predict_ind function
+def test_predict_ind():
+    """
+    Check if the prediction made on single row of new data is the same as expected
+    """
+    actual_prediction = train.predict_ind(model_2,enc,scaler_2,cat_inputs,153.6)
+    expected_prediction = model_2.predict_proba(correct_output)
+    expected_prediction = round(float(expected_prediction[0][1]), 3)
+    assert actual_prediction == expected_prediction
+
+# define tests with unhappy paths
+def test_unexpected_features():
+    """
+    check the train_evaluate function using numpy array features instead of DataFrame
+    """
+    with pytest.raises(AttributeError):
+        train.train_evaluate(features=np.array(OH_encoded_df.drop(['response'],axis=1)),
+                                        response=OH_encoded_df['response'].values.ravel(),
+                                        results_path=None,
+                                        matrix_path=None,
+                                        roc_path=None,
+                                        test_size=0.50,
+                                        random_state=SEED,
+                                        max_iter=15,
+                                        pred_path_1=None,
+                                        pred_path_2=None)
+
+def test_unexpected_response():
+    """
+    check the train_evaluate function using two-dimensional array as response
+    """
+    with pytest.raises(ValueError):
+        train.train_evaluate(features=OH_encoded_df.drop(['response'],axis=1),
+                                response=np.array([OH_encoded_df['response'].values.ravel()]),
+                                results_path=None,
+                                matrix_path=None,
+                                roc_path=None,
+                                test_size=0.50,
+                                random_state=SEED,
+                                max_iter=15,
+                                pred_path_1=None,
+                                pred_path_2=None)
+
+def test_unexpected_test_size():
+    """
+    check the train_evaluate function using string input in test_size arg
+    """
+    with pytest.raises(ValueError):
+        train.train_evaluate(features=OH_encoded_df.drop(['response'],axis=1),
+                                response=OH_encoded_df['response'].values.ravel(),
+                                results_path=None,
+                                matrix_path=None,
+                                roc_path=None,
+                                test_size='0.50',
+                                random_state=SEED,
+                                max_iter=15,
+                                pred_path_1=None,
+                                pred_path_2=None)
+
+def test_unexpected_random_state():
+    """
+    check the train_evaluate function using string input in random_state arg
+    """
+    with pytest.raises(ValueError):
+        train.train_evaluate(features=OH_encoded_df.drop(['response'],axis=1),
+                                response=OH_encoded_df['response'].values.ravel(),
+                                results_path=None,
+                                matrix_path=None,
+                                roc_path=None,
+                                test_size=0.50,
+                                random_state='2',
+                                max_iter=15,
+                                pred_path_1=None,
+                                pred_path_2=None)
+
+def test_unexpected_max_iter():
+    """
+    check the train_evaluate function using string input in max_iter arg
+    """
+    with pytest.raises(ValueError):
+        train.train_evaluate(features=OH_encoded_df.drop(['response'],axis=1),
+                                response=OH_encoded_df['response'].values.ravel(),
+                                results_path=None,
+                                matrix_path=None,
+                                roc_path=None,
+                                test_size=0.50,
+                                random_state=2,
+                                max_iter='15',
+                                pred_path_1=None,
+                                pred_path_2=None)

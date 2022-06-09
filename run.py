@@ -6,49 +6,71 @@ import logging.config
 import argparse
 import yaml
 
-from src.createdb import (create_db,
-                          add_df)
-from src.clean    import (join_current_price,
-                          join_transact_price,
-                          add_response,
-                          filter_df,
-                          drop_dups,
-                          impute_missing)
-from src.train    import (train)
-from src.acquire_new import get_stock_price, get_transactions, upload_s3, download_s3
+from src.createdb    import (create_db,
+                             add_df)
+from src.clean       import (join_current_price,
+                             join_transact_price,
+                             add_response,
+                             filter_df,
+                             drop_dups,
+                             impute_missing)
+from src.train       import (train)
+from src.acquire_new import (get_stock_price,
+                             get_transactions,
+                             upload_s3,
+                             download_s3)
 
+# use the config file for logging purposes
 logging.config.fileConfig('config/logging/local.conf')
 
-# Add parsers for both creating a database and uploading source data to s3 bucket
-parser = argparse.ArgumentParser(description='Create database or upload data to s3')
+# define the argument parser
+parser = argparse.ArgumentParser(description='Provide different arguments to run pipeline')
+
+# add argument for config yaml file
 parser.add_argument('--config', default='config/test.yaml',
                     help='Path to configuration file')
 
+# allow for subparsers
 subparsers = parser.add_subparsers(dest='subparser_name')
 
-# Sub-parser for creating a database
-sb_create = subparsers.add_parser('create_db', description='Create database')
+# subparser for creating a table
+sb_create = subparsers.add_parser('create_db', description='Create table')
 
-# Sub-parser for downloading API data and pushing to S3 bucket
+# subparser for downloading API data and pushing to S3 bucket
 sb_ingest_new = subparsers.add_parser('acquire_new', description='Add data to s3 bucket')
 sb_ingest_new.add_argument('--s3_raw',
                            required=False,
                            help='Will load data to specified path',
                            default='')
 
-# Sub-parser for cleaning raw data from s3 bucket
+# subparser for downloading raw data from S3 and creating cleaned data
 sb_download = subparsers.add_parser('clean',
-                                    description='Download & clean data from s3 bucket')                                 
+                                    description='Download & clean data from s3 bucket')               
 sb_download.add_argument('--s3_raw',
                          required=False,
                          help='Will load data from specified path',
                          default='')
 
-# Sub-parser for training and saving model
-sb_train = subparsers.add_parser('train',
-                                 description='Train model / OneHotEncoder and save to s3 bucket')
+# subparser for creating features from the cleaned data
+sb_add_features = subparsers.add_parser('add_features',
+                                    description='Save the final DataFrame with all features')
 
+# subparser for creating the model object and other artifacts
+sb_get_model = subparsers.add_parser('get_model',
+                                    description = 'Save all the modeling artifeacts')
+
+# subparser for obtaining predictions
+sb_get_preds = subparsers.add_parser('get_preds',
+                                    description = 'Save all the predictions')
+
+# subparser for generating metrics
+sb_get_metrics = subparsers.add_parser('get_metrics',
+                                    description = 'Save all the performance metrics')
+
+# parse all the arguments
 args = parser.parse_args()
+
+# obtain the name of the subparser
 sp_used = args.subparser_name
 
 if __name__ == '__main__':
@@ -56,6 +78,7 @@ if __name__ == '__main__':
         y_conf = yaml.load(f, Loader=yaml.FullLoader)
 
     if sp_used == 'acquire_new':
+        # get data from the APIs
         get_transactions(**y_conf['acquire_new']['get_transactions'])
         get_stock_price(**y_conf['acquire_new']['get_stock_price'])
 
@@ -76,15 +99,28 @@ if __name__ == '__main__':
         download_s3(args.s3_raw,**y_conf['clean']['download_s3']['cp'])
         download_s3(args.s3_raw,**y_conf['clean']['download_s3']['tp'])
 
+        # create the cleaned data
         data = join_transact_price(**y_conf['clean']['transact'])
-        data = join_current_price(data, **y_conf['clean']['current'])
-        data = add_response(data)
+        join_current_price(data, **y_conf['clean']['current'])
+
+    elif sp_used == 'add_features':
+        # create the features needed for modeling
+        data = add_response(**y_conf['clean']['add_response'])
         data = filter_df(data, **y_conf['clean']['filter'])
         data = drop_dups(data)
         impute_missing(data, **y_conf['clean']['impute_missing'])
 
-    elif sp_used == 'train':
-        train(y_conf['train']['local_path'], **y_conf['train']['train'])
+    elif sp_used == 'get_model':
+        # save the model and other required artifacts
+        train(**y_conf['train']['get_model'])
+
+    elif sp_used == 'get_preds':
+        # obtain the predictions
+        train(**y_conf['train']['get_preds'])
+
+    elif sp_used == 'get_metrics':
+        # obtain the performance metrics
+        train(**y_conf['train']['get_metrics'])
 
     else:
         parser.print_help()

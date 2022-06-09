@@ -153,9 +153,7 @@ def test_model_pred_probs():
                                         pred_path_1=None,
                                         pred_path_2=None)[0]
     actual_preds = output_model.predict_proba(x_test)[:, 1]
-    print(actual_preds)
     expected_preds = model.predict_proba(x_test)[:, 1]
-    print(expected_preds)
     assert list(actual_preds) == list(expected_preds)
 
 def test_model_auc_score():
